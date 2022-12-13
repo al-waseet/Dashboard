@@ -1,0 +1,18 @@
+.Quantity_Button
+{
+	background: transparent;
+	border-radius: 8px;
+	font-weight: bold;
+	font-size: 1.25rem;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.Quantity_Button:active
+{
+	opacity: 0.5;
+}

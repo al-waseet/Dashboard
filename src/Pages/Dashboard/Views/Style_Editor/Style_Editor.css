@@ -1,0 +1,68 @@
+.Colors
+{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 4rem;
+    padding-top: 2rem;
+}
+
+.Style_Element_Color_Label
+{
+	font-size: 1.25rem;
+	font-weight: bold;
+}
+
+.sketch-picker
+{
+	margin-top: 1rem;
+}
+
+.Cart_Icons_Header
+{
+    padding-top: 2rem;
+}
+
+.Cart_Icons
+{
+	padding-top: 1rem;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 4rem;
+}
+
+.Preview_Header
+{
+    padding-top: 2rem;
+}
+
+.UI_Elements
+{
+	border: 2px solid #4D4D4D;
+	border-radius: 0.5rem;
+	padding: 2rem;
+	position: relative;
+	margin-top: 2rem;
+}
+
+.Floating_Action_Button
+{
+	position: absolute;
+	cursor: pointer;
+	display: flex;
+	border-radius: 2.5rem;
+	height: 5rem;
+	width: 5rem;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	bottom: 2rem;
+	right: 2rem;
+}
+
+.Floating_Action_Button_Image
+{
+	height: 4rem;
+	width: 4rem;
+}

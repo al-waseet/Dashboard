@@ -1,0 +1,21 @@
+.Manager_Editor
+{
+	border: 2px solid #4D4D4D;
+	border-radius: 0.5em;
+	padding: 1rem;
+}
+
+.Editable_Manager_Credentials_Container
+{
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.Manager_Editor_Button_Container
+{
+	display: flex;
+	flex-direction: row;
+	padding-top: 1rem;
+	gap: 2rem;
+}

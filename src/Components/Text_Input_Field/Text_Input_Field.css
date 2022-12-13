@@ -1,0 +1,34 @@
+.Text_Input
+{
+	display: flex;
+	flex-direction: column;
+}
+
+.Text_Input_Label
+{
+	font-size: 1.25rem;
+	font-weight: bold;
+	color: #4D4D4D;
+}
+
+.Text_Input_Field
+{
+	color: #4D4D4D;
+	border: 2px solid #4D4D4D;
+	background-color: transparent;
+	height: 2rem;
+	border-radius: 0.5rem;
+	padding-left: 1rem;
+	font-size: 1.25rem;
+}
+
+.Text_Input_Field:focus
+{
+	outline: none;
+}
+
+.Text_Input_Field:disabled
+{
+    cursor: not-allowed;
+    background-color: #DDDDDD;
+}

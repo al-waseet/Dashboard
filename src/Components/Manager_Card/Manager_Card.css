@@ -1,0 +1,36 @@
+.Manager_Card
+{
+	border: 2px solid #4D4D4D;
+	border-radius: 0.5em;
+	padding: 1rem;
+    position: relative;
+}
+
+.Manager_Credentials_Container
+{
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr min-content;
+	gap: 2rem;
+}
+
+.Manager_Credential_Label
+{
+	font-weight: bold;
+	align-self: flex-start;
+	font-size: 1.25rem;
+}
+
+.Manager_Credential
+{
+	align-self: flex-end;
+	font-size: 1.25rem;
+}
+
+.Manager_Button_Container
+{
+	display: flex;
+	flex-direction: row;
+	padding-top: 1rem;
+	gap: 2rem;
+}

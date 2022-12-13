@@ -1,0 +1,224 @@
+/* 
+
+Source: https://codepen.io/himalayasingh/pen/pxKKgd
+
+*/
+
+.Dropdown_Menu_Container
+{
+	display: flex;
+	flex-direction: column;
+}
+
+.Dropdown_Menu_Label
+{
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.Dropdown_Menu_Form
+{
+	position: relative;
+	z-index: 1;
+	margin-top: 2rem;
+}
+
+.Dropdown_Menu_Controller
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 3;
+}
+
+.Dropdown_Menu_Controller:checked ~ .Dropdown_Menu_Options 
+{
+	border: 2px solid #4D4D4D;
+	height: 16rem;
+	overflow-y: scroll;
+}
+
+.Dropdown_Menu_Controller:checked ~ .Dropdown_Menu_Options .Option_Label 
+{
+	display: block;
+	padding: 1rem 1rem;
+}
+
+.Dropdown_Menu_Controller:not(:checked) ~ .Dropdown_Menu_Options .Dropdown_Menu_Option input[type="radio"]:checked ~ .Option_Value 
+{
+	top: -30px;
+}
+
+.Dropdown_Menu_Controller:checked ~ .Dropdown_Menu_Options .Dropdown_Menu_Option input[type="radio"]:checked ~ .Option_Value 
+{
+	display: none;
+}
+
+.Dropdown_Menu_Controller:checked ~ .Dropdown_Menu_Options .Option_Background
+{
+	display: block;
+}
+
+.Dropdown_Menu_Box
+{
+	position: relative;
+	padding-left: 1rem;
+	padding-top: 0.375rem;
+	padding-bottom: 0.375rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	border: 2px solid #4D4D4D;
+}
+
+.Dropdown_Menu_Selected_Value
+{
+	font-size: 1.25rem;
+}
+
+.Dropdown_Menu_Arrow_Icon 
+{
+	position: absolute;
+	background-color: #4D4D4D;
+	top: 0.75rem;
+	right: 1rem;
+	bottom: 1rem;
+	padding: 1rem;
+	clip-path: path('M24.9675 2.20399C24.9354 2.32546 24.8795 2.43934 24.803 2.53902C24.7266 2.6387 24.6311 2.72221 24.5222 2.7847L13.4857 9.16184C13.3404 9.24589 13.1756 9.29019 13.0078 9.29027H12.9924C12.8247 9.2902 12.66 9.24594 12.5148 9.16196L1.4783 2.78482C1.2587 2.65801 1.09843 2.44908 1.03276 2.20401C0.967079 1.95894 1.00137 1.69779 1.12809 1.47802C1.2548 1.25825 1.46356 1.09786 1.70844 1.03213C1.95332 0.966399 2.21427 1.00072 2.43386 1.12753L12.2704 6.81122C12.4923 6.93944 12.7441 7.00694 13.0003 7.00694C13.2566 7.00694 13.5083 6.93944 13.7303 6.81122L23.5664 1.12753C23.7302 1.03289 23.9183 0.988992 24.107 1.00138C24.2957 1.01377 24.4764 1.0819 24.6264 1.19713C24.7764 1.31237 24.8889 1.46955 24.9496 1.64878C25.0103 1.828 25.0166 2.02122 24.9675 2.20399V2.20399Z');
+}
+
+.Dropdown_Menu_Options
+{
+	position: absolute;
+	width: 100%;
+	background-color: #FFFFFF;
+	border-radius: 0.5rem;
+}
+
+.Dropdown_Menu_Option 
+{
+	position: relative;
+	line-height: 1;
+	transition: 0.3s ease all;
+	z-index: 2;
+}
+
+.Dropdown_Menu_Option:hover
+{
+	background-color: #8068A8;
+}
+
+.Dropdown_Menu_Option:first-of-type:hover
+{
+	border-radius: 0.375rem 0.375rem 0 0;
+}
+
+.Dropdown_Menu_Option:last-of-type:hover
+{
+	border-radius: 0 0 0.375rem 0.375rem;
+}
+
+.Dropdown_Menu_Option, .Option_Label 
+{
+	color: #4D4D4D;
+	font-size: 1.25rem;
+}
+
+.Option_Label 
+{
+	display: none;
+	padding: 0;
+}
+
+.Selection_Controller 
+{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 50%;
+}
+
+.Selection_Controller.Top_Half 
+{
+	top: 0;
+}
+
+.Selection_Controller.Bottom_Half
+{
+	bottom: 0;
+}
+
+input[type="radio"] 
+{
+	position: absolute;
+	right: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.Selection_Controller:hover 
+{
+	height: 100%;
+	z-index: 1;
+}
+
+.Option_Label 
+{
+	transition: 0.3s ease all;
+}
+
+.Option_Value 
+{
+	position: absolute;
+	left: 1rem;
+	width: 50%;
+	height: 1.25rem;
+	opacity: 0;
+	background-color: #FFFFFF;
+	transform: scale(0);
+}
+
+.Dropdown_Menu_Option input[type="radio"]:checked ~ .Option_Value 
+{
+	opacity: 1;
+	transform: scale(1);
+}
+
+.Dropdown_Menu_Option input[type="radio"]:checked ~ .Option_Label:before 
+{
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.Option_Background
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 40px;
+	transition: 0.3s ease all;
+	z-index: 1;
+	display: none;
+}
+
+.Dropdown_Menu_Option:hover .Option_Label 
+{
+	color: #FFFFFF;
+    font-weight: bold;
+}

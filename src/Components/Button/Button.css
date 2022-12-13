@@ -1,0 +1,41 @@
+.Generic_Button
+{
+	background: linear-gradient(135deg, #8068A8 0%, #F5B8D3 50%, #90DDF5 100%);
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 1rem;
+	border: 0;
+	font-weight: bold;
+	border-radius: 0.5rem;
+	padding: 0.5rem 1rem;
+	text-align: center;
+}
+
+.Generic_Button:active
+{
+	opacity: 0.5;
+}
+
+.Secondary_Generic_Button
+{	
+	background: linear-gradient(white, white) padding-box, linear-gradient(135deg, #8068A8 0%, #F5B8D3 50%, #90DDF5 100%) border-box;
+	border: 2px solid transparent;
+	cursor: pointer;
+	font-size: 1rem;
+	font-weight: bold;
+	border-radius: 0.5rem;
+	padding: calc(0.5rem - 3px) calc(1rem - 3px);
+	text-align: center;
+}
+
+.Secondary_Generic_Button::target-text
+{
+	background-image: linear-gradient(135deg, #8068A8 0%, #F5B8D3 50%, #90DDF5 100%);
+    background-clip: text;
+    color: transparent;
+}
+
+.Secondary_Generic_Button:active
+{
+	opacity: 0.5;
+}

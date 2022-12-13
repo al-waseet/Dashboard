@@ -1,0 +1,23 @@
+.Addon_Container
+{
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+
+.Button_on_a_Row
+{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	height: 2rem;
+	width: 2rem;
+}
+
+.Button_Icon_on_a_Row
+{
+    align-self: center;
+	height: 1.5rem;
+	width: 1.5rem;
+}

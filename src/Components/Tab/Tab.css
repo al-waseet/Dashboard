@@ -1,0 +1,15 @@
+.Tab
+{
+    padding-left: 2rem;
+    font-size: 1.5rem;
+    padding-right: 2rem;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.Active_Tab
+{
+    color: #FFFFFF;
+    background-color: #8068A8;
+    font-weight: bold;
+}

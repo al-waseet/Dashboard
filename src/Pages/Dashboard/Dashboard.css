@@ -1,0 +1,65 @@
+.Dashboard
+{
+	display: flex;
+	flex-direction: row;
+}
+
+.Navigation_Panel
+{
+	display: flex;
+	flex-direction: column;
+	border-right: 0.25rem solid #8068A8;
+	min-height: calc(100vh - 2rem);
+	width: 16rem;
+	padding-top: 2rem;
+}
+
+@media screen and (max-width: 640px) 
+{
+	.Navigation_Panel
+	{
+		display: none;
+	}
+}
+
+.Mobile_Navigation_Panel
+{
+	display: flex;
+	flex-direction: column;
+	border-right: 0.25rem solid #8068A8;
+	min-height: calc(100vh - 2rem);
+	width: 16rem;
+	padding-top: 2rem;
+	background-color: white;
+	z-index: 1;
+}
+
+.Copyright
+{
+	margin-top: auto;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-bottom: 2rem;
+}
+
+.View_Section
+{
+	padding: 2rem;
+	min-width: 0; /* Prevents Overflow */
+	width: 100vw;
+}
+
+.Blurry_Overlay
+{
+	background: rgba(255, 255, 255, 0.5);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+.Dashboard_Buttons
+{
+	padding-top: 2rem;
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}

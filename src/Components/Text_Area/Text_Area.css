@@ -1,0 +1,28 @@
+.Text_Area
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.Text_Area_Label
+{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4D4D4D;
+}
+
+.Text_Area_Field
+{
+    margin-top: 1rem;
+    border: 2px solid #4D4D4D;
+	background-color: transparent;
+    border-radius: 0.5rem;
+    resize: none;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.Text_Area_Field:focus
+{
+	outline: none;
+}

@@ -1,0 +1,21 @@
+.Spinner
+{
+    border: 1rem solid #4D4D4D;
+    border-top: 1rem solid #000000;
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
+    animation: spin 0.8s linear infinite;
+    margin: 2.5rem auto;
+    @keyframes spin 
+    {
+        0%
+        {
+            transform: rotate(0deg);
+        }
+        100%
+        {
+            transform: rotate(360deg);
+        }
+    }
+}

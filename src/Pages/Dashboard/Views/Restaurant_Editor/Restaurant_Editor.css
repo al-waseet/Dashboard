@@ -1,0 +1,33 @@
+.Restaurant_Logos
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 2rem;
+	gap: 2rem;
+}
+
+.Restaurant_Information
+{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 2rem;
+	padding-top: 2rem;
+}
+
+.Managers_Header
+{
+	padding-top: 2rem;
+}
+
+.Managers
+{
+	padding-top: 2rem;
+	display: flex;
+	flex-direction: row;
+	padding-bottom: 2rem;
+	align-items: center;
+	gap: 2rem;
+	flex-wrap: wrap;
+}

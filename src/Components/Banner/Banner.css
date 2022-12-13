@@ -1,0 +1,51 @@
+.Banner
+{
+	display: flex;
+	flex-direction: column;
+	height: 20rem;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.6);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.5rem;
+	gap: 2rem;
+	margin-bottom: 4rem;
+	position: relative;
+}
+
+.Category_Name
+{
+	color: #FFFFFF;
+}
+
+.Category_Editing_Invitation
+{
+	color: #FFFFFF;
+	font-size: 1.5rem;
+}
+
+.Expansion_Button_Container
+{
+	width: 3rem;
+	cursor: pointer;
+}
+
+.Banner_Name_Field
+{
+	color: #FFFFFF;
+	border: 2px solid #FFFFFF;
+	background-color: transparent;
+	height: 2rem;
+	border-radius: 0.5rem;
+	padding-left: 1rem;
+	font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.Banner_Name_Field:focus
+{
+	outline: none;
+}

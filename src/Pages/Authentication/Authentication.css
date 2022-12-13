@@ -1,0 +1,23 @@
+.Authentication
+{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	background-color: #F5B8D3;
+	background-image: radial-gradient(farthest-corner at bottom left, #90DDF5, transparent 50%), radial-gradient(farthest-corner at bottom right, #8068A8, transparent 50%);
+	height: 100vh;
+}
+
+.Input_Area
+{
+    border: 2px solid #4D4D4D;
+    border-radius: 0.5rem;
+    background-color: white;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+	align-self: center;
+    gap: 1rem;
+}

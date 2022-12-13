@@ -1,0 +1,11 @@
+.Addition_Icon_Container
+{
+	border-radius: 50%;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	cursor: pointer;
+	height: 4rem;
+	width: 4rem;
+	align-self: center;
+}

@@ -1,0 +1,24 @@
+.Payment_Card_Editor
+{
+	border: 2px solid #4D4D4D;
+	border-radius: 0.5em;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+    gap: 1rem;
+    max-width: 20rem;
+}
+
+.Numerical_Fields
+{
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+}
+
+.Expiry_Date
+{
+	display: flex;
+	flex-direction: row;
+	gap: 0.5rem;
+}

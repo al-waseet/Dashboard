@@ -1,0 +1,85 @@
+.Registration
+{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	background-color: #F5B8D3;
+	background-image: radial-gradient(farthest-corner at bottom left, #90DDF5, transparent 50%), radial-gradient(farthest-corner at bottom right, #8068A8, transparent 50%);
+	height: 100vh;
+}
+
+.Form_Container
+{
+    border: 2px solid #4D4D4D;
+    border-radius: 0.5rem;
+    background-color: white;
+    padding-top: 2rem;
+	padding-bottom: 2rem;
+	padding-left: 4rem;
+	padding-right: 4rem;
+    display: flex;
+    flex-direction: column;
+	align-self: center;
+    gap: 1rem;
+	position: absolute;
+	width: 24rem;
+}
+
+.Steps
+{
+	border-bottom: 2px solid #4D4D4D;
+	position: relative;
+	width: calc(100% + 8rem);
+	left: -4rem;
+	top: -2rem;
+	display: flex;
+	flex-direction: row;
+}
+
+.Step
+{
+	flex: 1;
+	height: 1rem
+}
+
+.Step:first-of-type
+{
+	border-top-left-radius: 0.375rem;
+}
+
+.Step:last-of-type
+{
+	border-top-right-radius: 0.375rem;
+}
+
+.Step:not(:last-of-type)
+{
+	border-right: 2px solid #4D4D4D;
+}
+
+.Active_Step
+{
+	background-color: #8068A8;
+}
+
+.Current_Step
+{
+	margin-left: auto;
+}
+
+.Registration_Header
+{
+	display: flex;
+	flex-direction: row;
+	font-size: 1.25rem;
+}
+
+.Back_Button
+{
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	cursor: pointer;
+}

@@ -1,0 +1,48 @@
+.Card
+{
+	display: flex;
+	flex-direction: row;
+	border: 1px solid #4D4D4D;
+	border-radius: 0.5rem;
+	margin-bottom: 2rem;
+    position: relative;
+    padding: 1rem;
+}
+
+.Card_Image_Container
+{
+	align-self: flex-start;
+	position: relative;
+}
+
+.Card_Information
+{
+	align-self: start;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem
+}
+
+.Currency
+{
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.Currency_Field
+{
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	align-items: center;
+}
+
+.Customization_Information
+{
+	padding-top: 2rem;
+	padding-right: 2rem;
+	display: flex;
+	flex-direction: column;
+    gap: 1rem;
+}

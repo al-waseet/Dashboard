@@ -1,0 +1,43 @@
+.Checkbox_Container
+{
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	align-content: center;
+	align-items: center;
+}
+
+.Checkbox
+{
+	appearance: none;
+	background-color: transparent;
+	margin: 0;
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 0.15em;
+	cursor: pointer;
+}
+
+.Checkbox::before
+{
+	content: "";
+	display: block;
+	width: 1em;
+	height: 1em;
+	transform: scale(0);
+	box-shadow: inset 1em 1em;
+	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.Checkbox:checked::before 
+{
+	transform: scale(1);
+}
+
+.Checkbox_Label
+{
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	align-self: center;
+}
