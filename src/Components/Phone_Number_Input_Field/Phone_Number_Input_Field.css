@@ -6,7 +6,7 @@
 
 .Phone_Number_Input_Field_Label
 {
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	font-weight: bold;
 }
 
@@ -22,7 +22,7 @@
 	position: relative;
 	z-index: 1;
 	flex-grow: 1;
-	min-width: 8rem;
+	min-width: 10rem;
 }
 
 .Phone_Number_Code_Controller
@@ -238,6 +238,7 @@ input[type="radio"]
 	font-size: 1.25rem;
 	flex-grow: 8;
 	border-left: none;
+	margin-left: 0;
 }
 
 .Phone_Number_Input_Field:focus

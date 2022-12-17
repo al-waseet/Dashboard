@@ -1,11 +1,8 @@
 import './Account_Editor.css';
-import Addition_Button from '../../../../Components/Addition_Button/Addition_Button';
 import Button from '../../../../Components/Button/Button';
 import {Convert_Image_to_Base64} from '../../../../Helpers';
 import Icon_Selector from '../../../../Components/Icon_Selector/Icon_Selector';
 import Password_Editor from '../../../../Components/Password_Editor/Password_Editor';
-import Payment_Card from '../../../../Components/Payment_Card/Payment_Card';
-import Payment_Card_Editor from '../../../../Components/Payment_Card_Editor/Payment_Card_Editor';
 import Phone_Number_Input_Field from '../../../../Components/Phone_Number_Input_Field/Phone_Number_Input_Field';
 import Text_Input_Field from '../../../../Components/Text_Input_Field/Text_Input_Field';
 import { useEffect, useState } from 'react';
@@ -13,10 +10,10 @@ import { useEffect, useState } from 'react';
 const Account_Editor = ({Set_User, User}) =>
 {
 	const [Avatar, Set_Avatar] = useState ('');
-	const [Card_Creation_Mode, Set_Card_Creation_Mode] = useState (false);
 	const [Email, Set_Email] = useState ('');
 	const [Password, Set_Password] = useState ('');
 	const [Phone_Number, Set_Phone_Number] = useState ('');
+	const [Phone_Number_Code, Set_Phone_Number_Code] = useState ('');
 	const [Username, Set_Username] = useState ('');
 
 	useEffect (() => 
@@ -24,6 +21,7 @@ const Account_Editor = ({Set_User, User}) =>
 		Set_Avatar (User.Avatar);
 		Set_Email (User.Email);
 		Set_Phone_Number (User.Phone_Number)
+		Set_Phone_Number_Code (User.Phone_Number_Code)
 		Set_Username (User.Username);
 	}, []);
 
@@ -83,7 +81,7 @@ const Account_Editor = ({Set_User, User}) =>
 					<Text_Input_Field Function={Change_the_Username} Label="Username" Value={Username}></Text_Input_Field>
 					<Password_Editor Function={Change_the_Password} Password={Password}></Password_Editor>
 					<Text_Input_Field Function={Change_the_Email} Label="Email" Value={Email}></Text_Input_Field>
-                    <Phone_Number_Input_Field Phone_Number={Phone_Number} Set_Phone_Number={Set_Phone_Number}></Phone_Number_Input_Field>
+                    <Phone_Number_Input_Field Phone_Number={Phone_Number} Phone_Number_Code={Phone_Number_Code} Set_Phone_Number={Set_Phone_Number} Set_Phone_Number_Code={Set_Phone_Number_Code}></Phone_Number_Input_Field>
 				</div>
 				<Icon_Selector Current_Image={Avatar} Function={(Event) => Change_the_Avatar (Event.target.files [0])}></Icon_Selector>
 			</div>
@@ -91,10 +89,10 @@ const Account_Editor = ({Set_User, User}) =>
 			<div className='Payment_Methods'>
 				{User.Payment_Methods.map (Payment_Method => <Payment_Card Delete_the_Card={() => Delete_the_Card (Payment_Method.Number)} Last_4_Digits={Payment_Method.Number.slice (15, 19)} Type={Payment_Method.Card}></Payment_Card>)}
                 {!Card_Creation_Mode && <Addition_Button Function={() => Set_Card_Creation_Mode (true)}></Addition_Button>}
-			</div>*/}
+			</div>
 			<div className='New_Payment_Card'>
 				{Card_Creation_Mode && <Payment_Card_Editor Set_Card_Creation_Mode={Set_Card_Creation_Mode} Set_User={Set_User} User={User}></Payment_Card_Editor>}
-			</div>
+			</div>*/}
 			<h2 className='Subscription_Header'>Subscription</h2>
 			<div className='Subscription'>
 				<p><strong>Your plan:</strong> {User.Subscription.Plan}</p>

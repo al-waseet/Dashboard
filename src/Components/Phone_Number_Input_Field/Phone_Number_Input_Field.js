@@ -259,7 +259,8 @@ const Country_Codes =
 	},
 	{
 		"Country": "Myanmar",
-		"Code": "+95"
+		"Code": "+95",
+		"Flag": "🇲🇲"
 	},
 	{
 		"Country": "Iran",
@@ -1072,7 +1073,7 @@ const Country_Codes =
 	}
 ]
 
-const Phone_Number_Input_Field = ({Phone_Number, Set_Phone_Number}) => (
+const Phone_Number_Input_Field = ({Phone_Number, Phone_Number_Code, Set_Phone_Number, Set_Phone_Number_Code}) => (
 	<div className='Phone_Number_Input_Field_Container'>
 		<label className="Phone_Number_Input_Field_Label">Phone Number</label>
 		<div className='Combined_Field'>
@@ -1084,16 +1085,16 @@ const Phone_Number_Input_Field = ({Phone_Number, Set_Phone_Number}) => (
 				</div>
 				<div className='Phone_Number_Code_Options'>
 					{Country_Codes.map (Country_Code =>
-					<div className='Phone_Number_Code_Option'>
-						<input className='Phone_Number_Selection_Controller Top_Half' name='Phone_Number' onChange={(Event) => Function (Event.target.value)} type='radio' />
-						<input className='Phone_Number_Selection_Controller Bottom_Half' name='Phone_Number' onChange={(Event) => Function (Event.target.value)} type='radio' />
+					<div className='Phone_Number_Code_Option' key={Country_Code.Country}>
+						<input className='Phone_Number_Selection_Controller Top_Half' defaultChecked={Country_Code.Code === Phone_Number_Code} name='Phone_Number' onChange={Set_Phone_Number_Code} type='radio' />
+						<input className='Phone_Number_Selection_Controller Bottom_Half' defaultChecked={Country_Code.Code === Phone_Number_Code} name='Phone_Number' onChange={Set_Phone_Number_Code} type='radio' />
 						<span className='Phone_Number_Option_Label'>{Country_Code.Flag + ' ' + Country_Code.Code}</span>
 						<span className='Phone_Number_Option_Value'>{Country_Code.Flag + ' ' + Country_Code.Code}</span>
 					</div>)}
 					<div className='Phone_Number_Option_Background'></div>
 				</div>
 			</form>
-			<input className='Phone_Number_Input_Field' onChange={(Event) => Set_Phone_Number (Event.target.value)} type='tel' value={Phone_Number} />
+			<input className='Phone_Number_Input_Field' onChange={Set_Phone_Number} type='tel' value={Phone_Number} />
 		</div>
 	</div>
 )

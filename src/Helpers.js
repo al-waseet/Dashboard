@@ -8,6 +8,8 @@ export const Encrypt_the_Password = (Plain_Text_Password) =>
     return Encrypted_Password;
 }
 
+export const Go_to_Another_Page = (Navigate, URL_Path) => process.env.REACT_APP_Environment === 'Production' ? Navigate (URL_Path) : window.location.href = URL_Path;
+
 // From: https://stackoverflow.com/questions/63558462/how-to-parse-image-to-ico-format-in-javascript-client-side
 // By: https://stackoverflow.com/users/5818762/id01
 

@@ -10,10 +10,10 @@ const Application = () => (
 	<Router key='Router_Key'>
 		<User_Provider>
 			<Routes key='Routes_Key'>
-				<Route key='Authentication_Route_Key' path='/authentication' element={<Authentication />} />
+				<Route key='Authentication_Route_Key' path='/dashboard/authentication' element={<Authentication />} />
 				<Route key='Dashboard_Route_Key' path='/dashboard' element={<Dashboard />} />
 				<Route key='Miscellaneous_Route_Key' path='/*' element={<Not_Found />} />
-				<Route key='Registration_Route_Key' path='/registration' element={<Registration />} />
+				<Route key='Registration_Route_Key' path='/dashboard/registration' element={<Registration />} />
 			</Routes>
 		</User_Provider>
 	</Router>

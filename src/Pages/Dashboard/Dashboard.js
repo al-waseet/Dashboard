@@ -1,7 +1,9 @@
 import Account_Editor from './Views/Account_Editor/Account_Editor';
 import API from '../../API';
 import Button from '../../Components/Button/Button';
+import { Configuration } from '../../Configuration';
 import './Dashboard.css';
+import { Go_to_Another_Page } from '../../Helpers';
 import Header from '../../Components/Header/Header';
 import Menu_Editor from './Views/Menu_Editor/Menu_Editor';
 import POS_Editor from './Views/POS_Editor/POS_Editor'
@@ -28,7 +30,7 @@ const Dashboard = () =>
 	{
 		if (User === undefined)
 		{
-			Navigate ('/authentication')
+			Navigate ('./authentication')
 		}
 		else
 		{
@@ -100,7 +102,7 @@ const Dashboard = () =>
 				</View>}
 				<div className='Dashboard_Buttons'>
 					<Button Function={Save_the_Changes} Text="Save"></Button>
-					<Button Secondary Text="Preview"></Button>
+					<Button Function={() => Go_to_Another_Page (Navigate, `${Configuration.Ordering_Application_URL}/preview`)} Secondary Text="Preview"></Button>
 				</div>
 			</div>
 		</div>
