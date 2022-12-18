@@ -1,3 +1,11 @@
+.Loading_Page
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
 .Dashboard
 {
 	display: flex;

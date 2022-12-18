@@ -52,7 +52,7 @@ const Dashboard = () =>
 
 	if (Object.keys (restaurant).length === 0 || Object.keys (Users).length === 0)
 	{
-		return <Spinner></Spinner>
+		return <div className='Loading_Page'><Spinner></Spinner></div>
 	}
 
 	const Log_Out = () =>
