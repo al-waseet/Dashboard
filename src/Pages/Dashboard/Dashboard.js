@@ -3,7 +3,6 @@ import API from '../../API';
 import Button from '../../Components/Button/Button';
 import { Configuration } from '../../Configuration';
 import './Dashboard.css';
-import { Go_to_Another_Page } from '../../Helpers';
 import Header from '../../Components/Header/Header';
 import Menu_Editor from './Views/Menu_Editor/Menu_Editor';
 import POS_Editor from './Views/POS_Editor/POS_Editor'
@@ -56,11 +55,18 @@ const Dashboard = () =>
 		return <Spinner></Spinner>
 	}
 
-    const Log_Out = () =>
-    {
-        Navigate ('/');
-        Set_User (undefined)
-    }
+	const Log_Out = () =>
+	{
+		Navigate ('/');
+		Set_User (undefined)
+	}
+
+	const Preview_the_Changes = () =>
+	{
+		const Restaurant_Preview_Channel = new BroadcastChannel ('Restaurant_Preview');
+		Restaurant_Preview_Channel.postMessage (JSON.stringify (restaurant));
+		window.open (`${Configuration.Ordering_Application_URL}/preview`, '_blank');
+	}
 
 	const Save_the_Changes = () =>
 	{
@@ -102,7 +108,7 @@ const Dashboard = () =>
 				</View>}
 				<div className='Dashboard_Buttons'>
 					<Button Function={Save_the_Changes} Text="Save"></Button>
-					<Button Function={() => Go_to_Another_Page (Navigate, `${Configuration.Ordering_Application_URL}/preview`)} Secondary Text="Preview"></Button>
+					<Button Function={Preview_the_Changes} Secondary Text="Preview"></Button>
 				</div>
 			</div>
 		</div>
