@@ -1,5 +1,4 @@
 import Button from '../Button/Button';
-import { Encrypt_the_Password } from '../../Helpers';
 import './Manager_Editor.css';
 import Text_Input_Field from '../Text_Input_Field/Text_Input_Field';
 import { useEffect, useState } from 'react';
@@ -26,7 +25,7 @@ const Manager_Editor = ({Delete_the_User, Save_the_User, User, Users, Set_Users,
 			Avatar: "",
 			Email: Email,
 			Owner: false,
-			Password: Encrypt_the_Password (Password),
+			Password: Password,
 			Payment_Methods: [],
 			Phone_Number: "",
 			Restaurant_ID: User.Restaurant_ID,
