@@ -22,7 +22,7 @@ const Authentication = () =>
 		Set_User (Authenticated_User.Data);
 		if (Authenticated_User.Status === 200)
 		{
-			navigate ('/dashboard');
+			navigate ('/');
 		}
 	}
 
