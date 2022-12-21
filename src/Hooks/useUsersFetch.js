@@ -9,18 +9,22 @@ export const useUsersFetch = () =>
 
 	const Get_the_Users = async () =>
 	{
-        try
-        {
-            const Response = await API.Get_the_Users (User.Restaurant_ID);
-		    Set_Users (Response.Data);
-        }
-		catch (Error_Object)
-        {
-			console.error (Error_Object)
-        }
+		while (User === undefined)
+		{
+			try
+			{
+				const Response = await API.Get_the_Users (User.Restaurant_ID);
+				Set_Users (Response.Data);
+				break;
+			}
+			catch (Error_Object)
+			{
+				console.error (Error_Object)
+			}
+		}
 	}
 
-	useEffect (() => Get_the_Users, []);
+	useEffect (() => Get_the_Users, [User]);
 
 	return {Users, Set_Users};
 }

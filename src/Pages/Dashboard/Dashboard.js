@@ -24,6 +24,7 @@ const Dashboard = () =>
 	const Navigate = useNavigate ();
 	const [Navigation_Panel_Display_Status, Set_Navigation_Panel_Display_Status] = useState (false);
 	const [User, Set_User] = useContext (User_Context);
+	const [Active_Tab, Set_Active_Tab] = useState ('');
 
 	useEffect (() =>
 	{
@@ -44,7 +45,6 @@ const Dashboard = () =>
 		}
 	}, [])
 
-	const [Active_Tab, Set_Active_Tab] = useState ('');
 	const POS = usePOSFetch ();
 	const {restaurant, setRestaurant} = useRestaurantFetch ();
 	const {Users, Set_Users} = useUsersFetch ();
@@ -57,8 +57,8 @@ const Dashboard = () =>
 
 	const Log_Out = () =>
 	{
-		Navigate ('/');
-		Set_User (undefined)
+		Set_User (undefined);
+		window.location.href = 'https://alwaseet.me';
 	}
 
 	const Preview_the_Changes = () =>
