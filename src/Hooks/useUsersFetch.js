@@ -14,9 +14,9 @@ export const useUsersFetch = () =>
             const Response = await API.Get_the_Users (User.Restaurant_ID);
 		    Set_Users (Response.Data);
         }
-		catch
+		catch (Error_Object)
         {
-
+			console.error (Error_Object)
         }
 	}
 

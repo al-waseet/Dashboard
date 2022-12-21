@@ -14,9 +14,9 @@ export const useRestaurantFetch = () =>
 			const Restaurant = await API.Get_the_Restaurant (User.Restaurant_ID);
 			setRestaurant (Restaurant.Data);
 		}
-		catch
+		catch (Error_Object)
 		{
-
+			console.error (Error_Object)
 		}
 	}
 
