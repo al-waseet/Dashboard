@@ -12,9 +12,9 @@ export const usePOSFetch = () =>
 			const Response = await API.Get_the_POS ();
 			Set_POS (Response.Data);
 		}
-		catch
+		catch (Error_Object)
 		{
-			
+			console.error (Error_Object)	
 		}
 	}
 
