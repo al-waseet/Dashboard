@@ -27,11 +27,7 @@ const Dashboard = () =>
 
 	useEffect (() =>
 	{
-		if (User === undefined)
-		{
-			Navigate ('./authentication')
-		}
-		else
+		if (User !== undefined)
 		{
 			if (User.Type === 'Owner')
 			{
