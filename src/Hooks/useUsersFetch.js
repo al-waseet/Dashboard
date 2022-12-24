@@ -9,18 +9,14 @@ export const useUsersFetch = () =>
 
 	const Get_the_Users = async () =>
 	{
-		while (User === undefined)
+		try
 		{
-			try
-			{
-				const Response = await API.Get_the_Users (User.Restaurant_ID);
-				Set_Users (Response.Data);
-				break;
-			}
-			catch (Error_Object)
-			{
-				console.error (Error_Object)
-			}
+			const Response = await API.Get_the_Users (User.Restaurant_ID);
+			Set_Users (Response.Data);
+		}
+		catch (Error_Object)
+		{
+			console.error (Error_Object)
 		}
 	}
 

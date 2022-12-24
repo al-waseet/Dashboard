@@ -14,14 +14,12 @@ import Tables_and_QR_Editor from './Views/Tables_and_QR_Editor/Tables_and_QR_Edi
 import { usePOSFetch } from '../../Hooks/usePOSFetch';
 import { useRestaurantFetch } from '../../Hooks/useRestaurantFetch';
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useUsersFetch } from '../../Hooks/useUsersFetch';
 import { User_Context } from '../../Contexts/User';
 import View from '../../Components/View/View';
 
 const Dashboard = () => 
 {
-	const Navigate = useNavigate ();
 	const [Navigation_Panel_Display_Status, Set_Navigation_Panel_Display_Status] = useState (false);
 	const [User, Set_User] = useContext (User_Context);
 	const [Active_Tab, Set_Active_Tab] = useState ('');

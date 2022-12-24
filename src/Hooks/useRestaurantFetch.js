@@ -9,18 +9,14 @@ export const useRestaurantFetch = () =>
 
 	const Get_the_Restaurant = async () =>
 	{
-		while (User === undefined)
+		try
 		{
-			try
-			{
-				const Restaurant = await API.Get_the_Restaurant (User.Restaurant_ID);
-				setRestaurant (Restaurant.Data);
-				break;
-			}
-			catch (Error_Object)
-			{
-				console.error (Error_Object)
-			}
+			const Restaurant = await API.Get_the_Restaurant (User.Restaurant_ID);
+			setRestaurant (Restaurant.Data);
+		}
+		catch (Error_Object)
+		{
+			console.error (Error_Object)
 		}
 	}
 
