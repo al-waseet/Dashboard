@@ -40,14 +40,9 @@ const Dashboard = () =>
 	}, [])
 
 	const POS = usePOSFetch ();
-	const {restaurant, setRestaurant} = useRestaurantFetch ();
-	const {Users, Set_Users} = useUsersFetch ();
+	const {restaurant, Restaurant_Loading_Status, setRestaurant} = useRestaurantFetch ();
+	const {Users, Users_Loading_Status, Set_Users} = useUsersFetch ();
 	const [View_Title, Set_View_Title] = useState ('Restaurant');
-
-	if (Object.keys (restaurant).length === 0 || Object.keys (Users).length === 0)
-	{
-		return <div className='Loading_Page'><Spinner></Spinner></div>
-	}
 
 	const Log_Out = () =>
 	{
@@ -69,7 +64,9 @@ const Dashboard = () =>
 		//API.Update_the_Users (Users);
 	}
 
-	return (
+	return (Restaurant_Loading_Status || Users_Loading_Status) ? 
+        <div className='Loading_Page'><Spinner></Spinner></div> 
+        : 
 		<div className='Dashboard' key='Dashboard_Key'>
 			<nav className={Navigation_Panel_Display_Status ? 'Mobile_Navigation_Panel' : 'Navigation_Panel'}>
 				{User.Type === 'Owner' && <Tab Active_Tab={Active_Tab} ID='Restaurant_Editor' Set_Active_Tab={Set_Active_Tab} Set_View_Title={Set_View_Title} Title='Restaurant'></Tab>}
@@ -105,8 +102,7 @@ const Dashboard = () =>
 					<Button Function={Preview_the_Changes} Secondary Text="Preview"></Button>
 				</div>
 			</div>
-		</div>
-	);
+		</div>;
 }
 
 export default Dashboard;
