@@ -14,16 +14,15 @@ import Tables_and_QR_Editor from './Views/Tables_and_QR_Editor/Tables_and_QR_Edi
 import { usePOSFetch } from '../../Hooks/usePOSFetch';
 import { useRestaurantFetch } from '../../Hooks/useRestaurantFetch';
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useUsersFetch } from '../../Hooks/useUsersFetch';
 import { User_Context } from '../../Contexts/User';
 import View from '../../Components/View/View';
 
 const Dashboard = () => 
 {
-	const Navigate = useNavigate ();
 	const [Navigation_Panel_Display_Status, Set_Navigation_Panel_Display_Status] = useState (false);
 	const [User, Set_User] = useContext (User_Context);
+	const [Active_Tab, Set_Active_Tab] = useState ('');
 
 	useEffect (() =>
 	{
@@ -40,21 +39,15 @@ const Dashboard = () =>
 		}
 	}, [])
 
-	const [Active_Tab, Set_Active_Tab] = useState ('');
 	const POS = usePOSFetch ();
-	const {restaurant, setRestaurant} = useRestaurantFetch ();
-	const {Users, Set_Users} = useUsersFetch ();
+	const {restaurant, Restaurant_Loading_Status, setRestaurant} = useRestaurantFetch ();
+	const {Users, Users_Loading_Status, Set_Users} = useUsersFetch ();
 	const [View_Title, Set_View_Title] = useState ('Restaurant');
-
-	if (Object.keys (restaurant).length === 0 || Object.keys (Users).length === 0)
-	{
-		return <div className='Loading_Page'><Spinner></Spinner></div>
-	}
 
 	const Log_Out = () =>
 	{
-		Navigate ('/');
-		Set_User (undefined)
+		Set_User (undefined);
+		window.location.href = 'https://alwaseet.me';
 	}
 
 	const Preview_the_Changes = () =>
@@ -71,7 +64,9 @@ const Dashboard = () =>
 		//API.Update_the_Users (Users);
 	}
 
-	return (
+	return (Restaurant_Loading_Status || Users_Loading_Status) ? 
+        <div className='Loading_Page'><Spinner></Spinner></div> 
+        : 
 		<div className='Dashboard' key='Dashboard_Key'>
 			<nav className={Navigation_Panel_Display_Status ? 'Mobile_Navigation_Panel' : 'Navigation_Panel'}>
 				{User.Type === 'Owner' && <Tab Active_Tab={Active_Tab} ID='Restaurant_Editor' Set_Active_Tab={Set_Active_Tab} Set_View_Title={Set_View_Title} Title='Restaurant'></Tab>}
@@ -107,8 +102,7 @@ const Dashboard = () =>
 					<Button Function={Preview_the_Changes} Secondary Text="Preview"></Button>
 				</div>
 			</div>
-		</div>
-	);
+		</div>;
 }
 
 export default Dashboard;
