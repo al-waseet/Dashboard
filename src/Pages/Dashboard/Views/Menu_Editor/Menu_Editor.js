@@ -10,28 +10,32 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 {
 	const [Display_Statuses, Set_Display_Statuses] = useState ({});
 
-    const Add_a_Category = () =>
-    {
-        const Restaurant_Copy = Object.assign ({}, Restaurant);
-        Restaurant_Copy.Categories.push ({Banner_Image: Placeholder_Banner_Image, ID: crypto.randomUUID (), Name: ''})
-        Set_Restaurant (Restaurant_Copy);
-    }
+	const Add_a_Category = () =>
+	{
+		const Restaurant_Copy = Object.assign ({}, Restaurant);
+		Restaurant_Copy.Categories.push ({Banner_Image: Placeholder_Banner_Image, ID: crypto.randomUUID (), Name: ''})
+		Set_Restaurant (Restaurant_Copy);
+	}
 
-    const Add_an_Item = Menu_Item =>
-    {
-        const Restaurant_Copy = Object.assign ({}, Restaurant);
-        Restaurant_Copy.Menu.push (Menu_Item)
-        Set_Restaurant (Restaurant_Copy);
-    }
+	const Add_an_Item = Menu_Item =>
+	{
+		const Restaurant_Copy = Object.assign ({}, Restaurant);
+		Restaurant_Copy.Menu.push (Menu_Item)
+		Set_Restaurant (Restaurant_Copy);
+	}
 
 	const Change_the_Banner_Image = (Banner_Image, ID) =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
 		Restaurant_Copy.Categories.find (Category => Category.ID === ID).Banner_Image = Banner_Image;
+		if (Restaurant_Copy.Categories.find (Category => Category.ID === ID).File_Path === '')
+		{
+			Restaurant_Copy.Categories.find (Category => Category.ID === ID).File_Path = `/Images/${Restaurant.Name}/${Restaurant_Copy.Categories.find (Category => Category.ID === ID).Name}.png`;
+		}
 		Set_Restaurant (Restaurant_Copy)
 	}
 
-    const Change_the_Banner_Name = (Name, ID) =>
+	const Change_the_Banner_Name = (Name, ID) =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
 		Restaurant_Copy.Categories.find (Category => Category.ID === ID).Name = Name;
@@ -45,20 +49,24 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 		Restaurant_Copy.Menu = Restaurant_Copy.Menu.filter (Menu_Item => Menu_Item.Category !== Name);
 		Set_Restaurant (Restaurant_Copy);
 	}
-    
-    const Delete_the_Item = ID =>
-    {
-        const Restaurant_Copy = Object.assign ({}, Restaurant);
-        Restaurant_Copy.Menu = Restaurant_Copy.Menu.filter (Menu_Item => Menu_Item.ID !== ID);
-        Set_Restaurant (Restaurant_Copy);
-    }
+	
+	const Delete_the_Item = ID =>
+	{
+		const Restaurant_Copy = Object.assign ({}, Restaurant);
+		Restaurant_Copy.Menu = Restaurant_Copy.Menu.filter (Menu_Item => Menu_Item.ID !== ID);
+		Set_Restaurant (Restaurant_Copy);
+	}
 
-    const Save_the_Item = Updated_Menu_Item =>
-    {
-        const Restaurant_Copy = Object.assign ({}, Restaurant);
-        Restaurant_Copy.Menu [Restaurant_Copy.Menu.findIndex (Menu_Item => Menu_Item.ID !== Updated_Menu_Item.ID)] = Updated_Menu_Item;
-        Set_Restaurant (Restaurant_Copy);
-    }
+	const Save_the_Item = Updated_Menu_Item =>
+	{
+		const Restaurant_Copy = Object.assign ({}, Restaurant);
+		if (Updated_Menu_Item.Image === '')
+		{
+			Updated_Menu_Item.File_Path = `/Images/${Restaurant.Name}/Menu/${Updated_Menu_Item.Name}.png`;
+		}
+		Restaurant_Copy.Menu [Restaurant_Copy.Menu.findIndex (Menu_Item => Menu_Item.ID !== Updated_Menu_Item.ID)] = Updated_Menu_Item;
+		Set_Restaurant (Restaurant_Copy);
+	}
 
 	const Toggle_the_Customization_Menu = Category =>
 	{
@@ -82,7 +90,7 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 						{Display_Statuses [Category.Name] && <Card Addons={[]} Currency={Restaurant.Currency} Photo={Placeholder_Card_Image} New_Item_Status={true}></Card>}
 					</div>)
 			}
-            <Addition_Button Function={Add_a_Category}></Addition_Button>
+			<Addition_Button Function={Add_a_Category}></Addition_Button>
 		</div>
 	);
 }

@@ -83,7 +83,7 @@ const Dashboard = () =>
 					<Restaurant_Editor Restaurant={restaurant} Set_Restaurant={setRestaurant} Set_Users={Set_Users} Users={Users}></Restaurant_Editor>
 				</View>}
 				<View Active_Tab={Active_Tab} ID='Account_Editor'>
-					<Account_Editor User={User} Set_User={Set_User}></Account_Editor>
+					<Account_Editor Restaurant_Name={restaurant.Name} Set_User={Set_User} User={User}></Account_Editor>
 				</View>
 				<View Active_Tab={Active_Tab} ID='Menu_Editor'>
 					<Menu_Editor Restaurant={restaurant} Set_Restaurant={setRestaurant}></Menu_Editor>

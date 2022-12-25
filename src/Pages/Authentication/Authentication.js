@@ -19,6 +19,7 @@ const Authentication = () =>
 	{
 		const Authenticated_User = await API.Log_In ({Username, Password});
 		Authenticated_User.Data.Avatar = Configuration.COS_URL + Authenticated_User.Data.Avatar;
+        Authenticated_User.Data.Avatar_File_Path = Authenticated_User.Data.Avatar;
 		Set_User (Authenticated_User.Data);
 		if (Authenticated_User.Status === 200)
 		{

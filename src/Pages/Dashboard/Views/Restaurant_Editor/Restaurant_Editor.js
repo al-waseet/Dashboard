@@ -50,6 +50,10 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 		const New_Icon_in_Base64 = await Convert_Image_to_Base64 (New_Icon);
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
 		Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels = New_Icon_in_Base64;
+        if (Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels_File_Path === '')
+		{
+			Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Icon_512_Pixels.png`
+		}
 		Set_Icon (New_Icon_in_Base64);
 		Set_Restaurant (Restaurant_Copy);
 	}
@@ -59,6 +63,10 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 		const New_Logo_in_Base64 = await Convert_Image_to_Base64 (New_Logo);
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
 		Restaurant_Copy.Logo = New_Logo_in_Base64;
+        if (Restaurant_Copy.Icons.Logo_File_Path === '')
+		{
+			Restaurant_Copy.Icons.Logo_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Logo.png`
+		}
 		Set_Logo (New_Logo_in_Base64);
 		Set_Restaurant (Restaurant_Copy);
 	}
