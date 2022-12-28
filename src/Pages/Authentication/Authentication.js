@@ -20,6 +20,25 @@ const Authentication = () =>
 		const Authenticated_User = await API.Log_In ({Username, Password});
 		Authenticated_User.Data.Avatar = Configuration.COS_URL + Authenticated_User.Data.Avatar;
         Authenticated_User.Data.Avatar_File_Path = Authenticated_User.Data.Avatar;
+        Authenticated_User.Data.Restaurant.Categories.forEach (Category => 
+        {
+            Category.Banner_Image = Configuration.COS_URL + Category.Banner_Image;
+            Category.File_Path = Category.Banner_Image;
+        });
+        Authenticated_User.Data.Restaurant.Cart_Icon = Configuration.COS_URL + Authenticated_User.Data.Restaurant.Cart_Icon;
+        Authenticated_User.Data.Restaurant.Cart_Icon_File_Path = Authenticated_User.Data.Restaurant.Cart_Icon;
+        Object.keys (Authenticated_User.Data.Restaurant.Icons).forEach (Key =>
+        {
+            Authenticated_User.Data.Restaurant.Icons [Key] = Configuration.COS_URL + Authenticated_User.Data.Restaurant.Icons [Key];
+            Authenticated_User.Data.Restaurant.Icons [`${Key}_File_Path`] = Authenticated_User.Data.Restaurant.Icons [Key];
+        }); 
+        Authenticated_User.Data.Restaurant.Menu.forEach (Menu_Item => 
+        {
+            Menu_Item.File_Path = Menu_Item.Image;
+            Menu_Item.Image = Configuration.COS_URL + Menu_Item.Image
+        }); 
+        Authenticated_User.Data.Restaurant.Logo = Configuration.COS_URL + Authenticated_User.Data.Restaurant.Logo;
+        Authenticated_User.Data.Restaurant.Logo_File_Path = Authenticated_User.Data.Restaurant.Logo;
 		Set_User (Authenticated_User.Data);
 		if (Authenticated_User.Status === 200)
 		{
