@@ -7,7 +7,7 @@ import Phone_Number_Input_Field from '../../../../Components/Phone_Number_Input_
 import Text_Input_Field from '../../../../Components/Text_Input_Field/Text_Input_Field';
 import { useEffect, useState } from 'react';
 
-const Account_Editor = ({Set_User, User}) =>
+const Account_Editor = ({Restaurant_Name, Set_User, User}) =>
 {
 	const [Avatar, Set_Avatar] = useState ('');
 	const [Email, Set_Email] = useState ('');
@@ -25,16 +25,20 @@ const Account_Editor = ({Set_User, User}) =>
 		Set_Username (User.Username);
 	}, []);
 
-    const Change_the_Avatar = async New_Avatar =>
+	const Change_the_Avatar = async New_Avatar =>
 	{
 		const New_Avatar_in_Base64 = await Convert_Image_to_Base64 (New_Avatar);
 		const User_Copy = Object.assign ({}, User);
 		User_Copy.Avatar = New_Avatar_in_Base64;
+		if (User_Copy.Avatar_File_Path === '')
+		{
+			User_Copy.Avatar_File_Path = `/Images/${Restaurant_Name.replace (' ', '_')}/Profile_Pictures/${User_Copy.Username}_Profile_Picture.png`
+		}
 		Set_Avatar (New_Avatar_in_Base64);
 		Set_User (User_Copy);
 	}
 
-    const Change_the_Email = New_Email =>
+	const Change_the_Email = New_Email =>
 	{
 		const User_Copy = Object.assign ({}, User);
 		User_Copy.Email = New_Email;
@@ -42,7 +46,7 @@ const Account_Editor = ({Set_User, User}) =>
 		Set_User (User_Copy);
 	}
 
-    const Change_the_Phone_Number = New_Phone_Number =>
+	const Change_the_Phone_Number = New_Phone_Number =>
 	{
 		const User_Copy = Object.assign ({}, User);
 		User_Copy.Phone_Number = New_Phone_Number;
@@ -50,7 +54,7 @@ const Account_Editor = ({Set_User, User}) =>
 		Set_User (User_Copy);
 	}
 
-    const Change_the_Password = New_Password =>
+	const Change_the_Password = New_Password =>
 	{
 		const User_Copy = Object.assign ({}, User);
 		User_Copy.Password = New_Password;
@@ -58,7 +62,7 @@ const Account_Editor = ({Set_User, User}) =>
 		Set_User (User_Copy);
 	}
 
-    const Change_the_Username = New_Username =>
+	const Change_the_Username = New_Username =>
 	{
 		const User_Copy = Object.assign ({}, User);
 		User_Copy.Username = New_Username;
@@ -81,14 +85,14 @@ const Account_Editor = ({Set_User, User}) =>
 					<Text_Input_Field Function={Change_the_Username} Label="Username" Value={Username}></Text_Input_Field>
 					<Password_Editor Function={Change_the_Password} Password={Password}></Password_Editor>
 					<Text_Input_Field Function={Change_the_Email} Label="Email" Value={Email}></Text_Input_Field>
-                    <Phone_Number_Input_Field Phone_Number={Phone_Number} Phone_Number_Code={Phone_Number_Code} Set_Phone_Number={Set_Phone_Number} Set_Phone_Number_Code={Set_Phone_Number_Code}></Phone_Number_Input_Field>
+					<Phone_Number_Input_Field Phone_Number={Phone_Number} Phone_Number_Code={Phone_Number_Code} Set_Phone_Number={Set_Phone_Number} Set_Phone_Number_Code={Set_Phone_Number_Code}></Phone_Number_Input_Field>
 				</div>
 				<Icon_Selector Current_Image={Avatar} Function={(Event) => Change_the_Avatar (Event.target.files [0])}></Icon_Selector>
 			</div>
 			{/*<h2 className='Payment_Methods_Header'>Payment Cards</h2>
 			<div className='Payment_Methods'>
 				{User.Payment_Methods.map (Payment_Method => <Payment_Card Delete_the_Card={() => Delete_the_Card (Payment_Method.Number)} Last_4_Digits={Payment_Method.Number.slice (15, 19)} Type={Payment_Method.Card}></Payment_Card>)}
-                {!Card_Creation_Mode && <Addition_Button Function={() => Set_Card_Creation_Mode (true)}></Addition_Button>}
+				{!Card_Creation_Mode && <Addition_Button Function={() => Set_Card_Creation_Mode (true)}></Addition_Button>}
 			</div>
 			<div className='New_Payment_Card'>
 				{Card_Creation_Mode && <Payment_Card_Editor Set_Card_Creation_Mode={Set_Card_Creation_Mode} Set_User={Set_User} User={User}></Payment_Card_Editor>}
