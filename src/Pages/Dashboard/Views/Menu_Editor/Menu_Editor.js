@@ -42,6 +42,13 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 		Set_Restaurant (Restaurant_Copy)
 	}
 
+	const Change_The_Order_of_the_Items = (Source_ID, Target_ID) =>
+	{
+		const Restaurant_Copy = Object.assign ({}, Restaurant);
+		[Restaurant_Copy.Menu [Restaurant_Copy.Menu.findIndex (Menu_Item => Menu_Item.ID === Source_ID)], Restaurant_Copy.Menu [Restaurant_Copy.Menu.findIndex (Menu_Item => Menu_Item.ID === Target_ID)]] = [Restaurant_Copy.Menu [Restaurant_Copy.Menu.findIndex (Menu_Item => Menu_Item.ID === Target_ID)], Restaurant_Copy.Menu [Restaurant_Copy.Menu.findIndex (Menu_Item => Menu_Item.ID === Source_ID)]];
+		Set_Restaurant (Restaurant_Copy)
+	}
+
 	const Delete_the_Category = Name =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);

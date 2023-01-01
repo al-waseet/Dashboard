@@ -42,10 +42,10 @@ const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Descrip
 	}
 
 	const Change_the_Photo = async New_Photo =>
-    {
-        const New_Photo_in_Base64 = await Convert_Image_to_Base64 (New_Photo);
-        Set_Card_Photo (New_Photo_in_Base64);
-    }
+	{
+		const New_Photo_in_Base64 = await Convert_Image_to_Base64 (New_Photo);
+		Set_Card_Photo (New_Photo_in_Base64);
+	}
 
 	const Create_an_Item = () =>
 	{
@@ -99,7 +99,27 @@ const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Descrip
 		Save_the_Item (Updated_Menu_Item);
 	}
 
-	return <div className='Card'>
+	/*
+
+	function allowDrop(ev) {
+		ev.preventDefault();
+	  }
+	  
+	  function drag(ev) {
+		ev.dataTransfer.setData("text", ev.target.id);
+	  }
+	  
+	  function drop(ev) {
+		ev.preventDefault();
+		var data = ev.dataTransfer.getData("text");
+		ev.target.appendChild(document.getElementById(data));
+	  }
+
+	*/
+
+	// Move the functions to the Menu_Editor.js !!!
+
+	return <div className='Card' draggable={!New_Item_Status} id={New_Item_Status ? null : ID} ondragstart="drag(event)" ondragover="allowDrop(event)" ondrop="drop(event)">
 		{!New_Item_Status && <Deletion_Button Function={() => Delete_the_Item (ID)} Placement_Inside_Status={true}></Deletion_Button>}
 		<Image_Selector Classes={['Card_Image_Container']} Current_Image={Card_Photo} Function={(Event) => Change_the_Photo (Event.target.files [0])} ID={ID}></Image_Selector>
 		<div className='Card_Information'>
@@ -118,7 +138,7 @@ const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Descrip
 			{Side_Dishes_Enablement_Status && Card_Addons.filter (Card_Addon => Card_Addon.Countable === true).map (Card_Addon => <Addon Currency={Currency} Delete_the_Addon={Delete_the_Addon} ID={Card_Addon.ID} Name={Card_Addon.Name} Price={Card_Addon.Price} Update_the_Addon_Name={Update_the_Addon_Name} Update_the_Addon_Price={Update_the_Addon_Price}></Addon>)}
 			{Side_Dishes_Enablement_Status && <Addition_Button  Function={() => Add_an_Addon (true)}></Addition_Button>}
 		</div>
-        <Button Colors={{Button: '#8068A8', Button_Text: '#FFFFFF'}} Function={New_Item_Status ? Create_an_Item : Update_the_Item} Text={New_Item_Status ? 'Add' : 'Save'}></Button>
+		<Button Colors={{Button: '#8068A8', Button_Text: '#FFFFFF'}} Function={New_Item_Status ? Create_an_Item : Update_the_Item} Text={New_Item_Status ? 'Add' : 'Save'}></Button>
 	</div>
 }
 
