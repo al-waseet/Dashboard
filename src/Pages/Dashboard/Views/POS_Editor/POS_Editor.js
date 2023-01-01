@@ -11,7 +11,7 @@ const POS_Editor = ({POS, Restaurant, Set_Restaurant}) =>
 	useEffect (() => 
     {
         Set_API_Key (Restaurant.POS.API_Key);
-        Set_Point_of_Sale (Restaurant.POS.System)
+        Set_Point_of_Sale (Restaurant.POS.System);
     }, []);
 
 	const Change_API_Key = New_API_Key =>

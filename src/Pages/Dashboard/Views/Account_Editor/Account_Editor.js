@@ -97,7 +97,7 @@ const Account_Editor = ({Restaurant_Name, Set_User, User}) =>
 			<div className='New_Payment_Card'>
 				{Card_Creation_Mode && <Payment_Card_Editor Set_Card_Creation_Mode={Set_Card_Creation_Mode} Set_User={Set_User} User={User}></Payment_Card_Editor>}
 			</div>*/}
-			<h2 className='Subscription_Header'>Subscription</h2>
+			{/*<h2 className='Subscription_Header'>Subscription</h2>
 			<div className='Subscription'>
 				<p><strong>Your plan:</strong> {User.Subscription.Plan}</p>
 				<p><strong>Subscription valid until:</strong> {User.Subscription.End_Date}</p>
@@ -107,7 +107,7 @@ const Account_Editor = ({Restaurant_Name, Set_User, User}) =>
 					<Button Colors={{Button: '#8068A8', Button_Text: '#FFFFFF'}} Text="Pay"></Button>
 					<Button Colors={{Button: '#8068A8', Button_Text: '#FFFFFF'}} Text="Change Plan"></Button>
 				</div>
-			</div>
+			</div>*/}
 		</div>
 	)
 }

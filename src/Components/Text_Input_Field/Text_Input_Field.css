@@ -20,6 +20,8 @@
 	border-radius: 0.5rem;
 	padding-left: 1rem;
 	font-size: 1.25rem;
+    width: 100%;
+    box-sizing: border-box
 }
 
 .Text_Input_Field:focus

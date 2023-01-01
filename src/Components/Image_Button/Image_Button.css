@@ -10,8 +10,8 @@
 	flex-direction: column;
 	justify-content: center;
 	position: absolute;
-	bottom: -1rem;
-	right: -1rem;
+	bottom: 0;
+	right: 0;
 }
 
 .Icon_Selection_Button_Icon
