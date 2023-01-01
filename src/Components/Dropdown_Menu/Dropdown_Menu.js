@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 
 const Dropdown_Menu = ({Classes, Function, Label, Options, Value}) => 
 {
+    const Dropdown_Menu_Reference = useRef ();
     const [Option_Showing_Status, Set_Option_Showing_Status] = useState (false);
-	const Phone_Number_Code_Form_Reference = useRef();
-
+	
 	const Press_the_Escape_Button = (Event) => 
 	{
 		if (Event.keyCode === 27)
@@ -16,7 +16,7 @@ const Dropdown_Menu = ({Classes, Function, Label, Options, Value}) =>
 
 	const Handle_the_Outside_Click = Event => 
 	{
-		if (!Phone_Number_Code_Form_Reference.current.contains (Event.target)) 
+		if (!Dropdown_Menu_Reference.current.contains (Event.target)) 
 		{
 			Set_Option_Showing_Status (false);
 		}
@@ -30,7 +30,7 @@ const Dropdown_Menu = ({Classes, Function, Label, Options, Value}) =>
 
 	return <div className={'Dropdown_Menu_Container' + (Classes ? (' ' + Classes.join (' ')) : '')}>
 		<label className="Dropdown_Menu_Label">{Label}</label>
-		<form className='Dropdown_Menu_Form' onKeyDown={Press_the_Escape_Button} ref={Phone_Number_Code_Form_Reference}>
+		<form className='Dropdown_Menu_Form' onKeyDown={Press_the_Escape_Button} ref={Dropdown_Menu_Reference}>
 			<input checked={Option_Showing_Status} className='Dropdown_Menu_Controller' onChange={(Event) => Set_Option_Showing_Status (!Option_Showing_Status)} type="checkbox" />
 			<div className='Dropdown_Menu_Box'>
 				<div className='Dropdown_Menu_Selected_Value' style={(!Option_Showing_Status && Value === undefined) ? {visibility: 'hidden'} : null}><span>Select POS</span></div>

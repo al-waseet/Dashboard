@@ -1,0 +1,11 @@
+.Icon_Selector
+{
+	position: relative;
+}
+
+.Icon
+{
+	border-radius: 0.5rem;
+	width: 12rem;
+	height: 12rem;
+}
