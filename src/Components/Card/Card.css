@@ -7,6 +7,7 @@
 	margin-bottom: 2rem;
     position: relative;
     padding: 1rem;
+    flex-wrap: wrap;
 }
 
 .Card_Image_Container
