@@ -11,7 +11,7 @@ import Text_Input_Field from '../Text_Input_Field/Text_Input_Field';
 
 import {useEffect, useState} from 'react';
 
-const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Description, ID, Name, New_Item_Status, Photo, Price, Save_the_Item}) =>
+const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Description, Drag, Drop, ID, Name, New_Item_Status, Photo, Price, Save_the_Item}) =>
 {
 	const [Addons_Enablement_Status, Set_Addons_Enablement_Status] = useState (false);
 	const [Card_Addons, Set_Card_Addons] = useState ([]);
@@ -99,27 +99,7 @@ const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Descrip
 		Save_the_Item (Updated_Menu_Item);
 	}
 
-	/*
-
-	function allowDrop(ev) {
-		ev.preventDefault();
-	  }
-	  
-	  function drag(ev) {
-		ev.dataTransfer.setData("text", ev.target.id);
-	  }
-	  
-	  function drop(ev) {
-		ev.preventDefault();
-		var data = ev.dataTransfer.getData("text");
-		ev.target.appendChild(document.getElementById(data));
-	  }
-
-	*/
-
-	// Move the functions to the Menu_Editor.js !!!
-
-	return <div className='Card' draggable={!New_Item_Status} id={New_Item_Status ? null : ID} ondragstart="drag(event)" ondragover="allowDrop(event)" ondrop="drop(event)">
+	return <div className='Card' draggable={!New_Item_Status} id={New_Item_Status ? null : ID} onDragStart={New_Item_Status ? null : (Event) => Drag (Event)} onDragOver={New_Item_Status ? null : (Event) => Event.preventDefault ()} onDrop={New_Item_Status ? null : (Event) => Drop (Event)}>
 		{!New_Item_Status && <Deletion_Button Function={() => Delete_the_Item (ID)} Placement_Inside_Status={true}></Deletion_Button>}
 		<Image_Selector Classes={['Card_Image_Container']} Current_Image={Card_Photo} Function={(Event) => Change_the_Photo (Event.target.files [0])} ID={ID}></Image_Selector>
 		<div className='Card_Information'>
