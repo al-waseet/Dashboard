@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/dashboard/static/css/main.0b89cce3.css",
+    "main.js": "/dashboard/static/js/main.b044a497.js",
+    "static/media/Not_Found_Page_Background_Photo_Left_Alignment.jpg": "/dashboard/static/media/Not_Found_Page_Background_Photo_Left_Alignment.7cc0afaa6106517cb656.jpg",
+    "static/media/Placeholder_Card_Image.jpg": "/dashboard/static/media/Placeholder_Card_Image.3a0962d8c7f9b5b0125e.jpg",
+    "static/media/Placeholder_Banner_Image.jpg": "/dashboard/static/media/Placeholder_Banner_Image.9832ea4627dc60446051.jpg",
+    "static/media/al_waseet_Banner.svg": "/dashboard/static/media/al_waseet_Banner.ce1033973f0e1cc0ccc2ba8bc323d740.svg",
+    "static/media/Camera_Icon.svg": "/dashboard/static/media/Camera_Icon.e13693e2d5202f0341eb6a167b9b950f.svg",
+    "index.html": "/dashboard/index.html",
+    "static/media/Account_Icon.svg": "/dashboard/static/media/Account_Icon.b18cdb160141c7ec5c8e3b8e0020609e.svg",
+    "static/media/Printer_Icon.svg": "/dashboard/static/media/Printer_Icon.97979cfd82e72da7c0a20d799ed7e9fc.svg",
+    "static/media/Arrow_Down.svg": "/dashboard/static/media/Arrow_Down.e9e2d61bb3946ba526f06ea4cb78a3e0.svg",
+    "static/media/Back_Icon.svg": "/dashboard/static/media/Back_Icon.14c2ef7b3c0069a1cb75fb42d086c5f9.svg",
+    "static/media/Addition_Icon.svg": "/dashboard/static/media/Addition_Icon.eddc017e7c09058c0a356a67806722c5.svg",
+    "static/media/Pencil_Icon.svg": "/dashboard/static/media/Pencil_Icon.e5d5f5b8070b8c9d9eed63275f8ff995.svg",
+    "static/media/Subtraction_Icon.svg": "/dashboard/static/media/Subtraction_Icon.208d46a88c2a7cf9f9c133b34a32c913.svg",
+    "static/media/Close_Icon.svg": "/dashboard/static/media/Close_Icon.168f119a6fa006183501ec4fd7f3bc1b.svg",
+    "static/media/Hamburger_Icon.svg": "/dashboard/static/media/Hamburger_Icon.5f4ce0af437aa5c13e6a01312bb97874.svg"
+  },
+  "entrypoints": [
+    "static/css/main.0b89cce3.css",
+    "static/js/main.b044a497.js"
+  ]
+}
