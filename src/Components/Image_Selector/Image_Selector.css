@@ -1,0 +1,11 @@
+.Image_Selector
+{
+	position: relative;
+}
+
+.Image
+{
+	border-radius: 0.5rem;
+	width: 12rem;
+	height: 12rem;
+}

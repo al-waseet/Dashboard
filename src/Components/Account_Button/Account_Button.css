@@ -27,7 +27,6 @@
 	border-radius: 0.5rem;
 	border: 2px solid #4D4D4D;
 	margin-top: 1rem;
-	width: 14rem;
 	right: 0;
     z-index: 3;
     background-color: #FFFFFF;
@@ -36,8 +35,8 @@
 .Account_Menu_Option
 {
 	cursor: pointer;
-	font-size: 1.25rem;
-	padding: 1rem;
+	padding: 0.5rem 1rem;
+    white-space: nowrap;
 }
 
 .Account_Menu_Option:not(:last-of-type)

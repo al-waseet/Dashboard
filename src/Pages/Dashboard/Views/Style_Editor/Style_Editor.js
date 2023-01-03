@@ -2,6 +2,7 @@ import {ReactComponent as Arrow_Down} from '../../../../Images/Arrow_Down.svg';
 import Button from '../../../../Components/Button/Button';
 import Cart_Icon from '../../../../Components/Cart_Icon/Cart_Icon';
 import Checkbox from '../../../../Components/Checkbox/Checkbox';
+import { Configuration } from '../../../../Configuration';
 import Grid from '../../../../Components/Grid/Grid';
 import { SketchPicker } from 'react-color';
 import './Style_Editor.css';
@@ -52,7 +53,7 @@ const Style_Editor = ({Restaurant, Set_Restaurant}) =>
 			</div>
 			<h2 className='Cart_Icons_Header'>Cart Icons</h2>
 			<div className='Cart_Icons'>
-				{['http://localhost:3030/Images/Icons/Cart_1.svg', 'http://localhost:3030/Images/Icons/Cart_2.svg', 'http://localhost:3030/Images/Icons/Cart_3.svg', 'http://localhost:3030/Images/Icons/Cart_4.svg'].map (Icon => <Cart_Icon Cart_Icon_URL={Icon} Selection_Status={Icon === Current_Cart_Icon} Set_Cart_Icon_URL={Change_the_Cart_Icon}></Cart_Icon>)}
+				{[`${Configuration.COS_URL}/Images/Icons/Cart_1.svg`, `${Configuration.COS_URL}/Images/Icons/Cart_2.svg`, `${Configuration.COS_URL}/Images/Icons/Cart_3.svg`, `${Configuration.COS_URL}/Images/Icons/Cart_4.svg`].map (Icon => <Cart_Icon Cart_Icon_URL={Icon} Selection_Status={Icon === Current_Cart_Icon} Set_Cart_Icon_URL={Change_the_Cart_Icon}></Cart_Icon>)}
 			</div>
 			<h2 className='Preview_Header'>Preview</h2>
 			<div className='UI_Elements' style={{backgroundColor: Colors.Background}}>

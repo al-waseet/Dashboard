@@ -239,6 +239,8 @@ input[type="radio"]
 	flex-grow: 8;
 	border-left: none;
 	margin-left: 0;
+    width: 100%;
+    box-sizing: border-box
 }
 
 .Phone_Number_Input_Field:focus

@@ -1,4 +1,5 @@
 import './Phone_Number_Input_Field.css';
+import { useEffect, useRef, useState } from 'react';
 
 const Country_Codes = 
 [
@@ -1073,19 +1074,45 @@ const Country_Codes =
 	}
 ]
 
-const Phone_Number_Input_Field = ({Phone_Number, Phone_Number_Code, Set_Phone_Number, Set_Phone_Number_Code}) => (
-	<div className='Phone_Number_Input_Field_Container'>
+const Phone_Number_Input_Field = ({Phone_Number, Phone_Number_Code, Set_Phone_Number, Set_Phone_Number_Code}) => 
+{
+    const [Option_Showing_Status, Set_Option_Showing_Status] = useState (false);
+	const Phone_Number_Code_Form_Reference = useRef();
+
+	const Press_the_Escape_Button = (Event) => 
+	{
+		if (Event.keyCode === 27)
+		{
+			Set_Option_Showing_Status (false);
+		}
+	}
+
+	const Handle_the_Outside_Click = Event => 
+	{
+		if (!Phone_Number_Code_Form_Reference.current.contains (Event.target)) 
+		{
+			Set_Option_Showing_Status (false);
+		}
+	};
+
+	useEffect (() => 
+	{
+		document.addEventListener ('mousedown', Handle_the_Outside_Click);
+		return () => document.removeEventListener ('mousedown', Handle_the_Outside_Click);
+	});
+
+	return <div className='Phone_Number_Input_Field_Container'>
 		<label className="Phone_Number_Input_Field_Label">Phone Number</label>
 		<div className='Combined_Field'>
-			<form className='Phone_Number_Code_Form'>
-				<input className='Phone_Number_Code_Controller' type="checkbox" />
+			<form className='Phone_Number_Code_Form' onKeyDown={Press_the_Escape_Button} ref={Phone_Number_Code_Form_Reference}>
+				<input checked={Option_Showing_Status} className='Phone_Number_Code_Controller' onChange={(Event) => Set_Option_Showing_Status (!Option_Showing_Status)} type="checkbox" />
 				<div className='Phone_Number_Code_Box'>
-					<div className='Phone_Number_Code_Selected_Value'><span>-</span></div>
+					<div className='Phone_Number_Code_Selected_Value' style={(!Option_Showing_Status && Phone_Number_Code === undefined) ? {visibility: 'hidden'} : null}><span>+0</span></div>
 					<div className='Phone_Number_Code_Arrow_Icon'></div>
 				</div>
 				<div className='Phone_Number_Code_Options'>
 					{Country_Codes.map (Country_Code =>
-					<div className='Phone_Number_Code_Option' key={Country_Code.Country}>
+					<div className='Phone_Number_Code_Option' key={Country_Code.Country} onClick={() => Set_Option_Showing_Status (!Option_Showing_Status)}>
 						<input className='Phone_Number_Selection_Controller Top_Half' defaultChecked={Country_Code.Code === Phone_Number_Code} name='Phone_Number' onChange={Set_Phone_Number_Code} type='radio' />
 						<input className='Phone_Number_Selection_Controller Bottom_Half' defaultChecked={Country_Code.Code === Phone_Number_Code} name='Phone_Number' onChange={Set_Phone_Number_Code} type='radio' />
 						<span className='Phone_Number_Option_Label'>{Country_Code.Flag + ' ' + Country_Code.Code}</span>
@@ -1097,6 +1124,6 @@ const Phone_Number_Input_Field = ({Phone_Number, Phone_Number_Code, Set_Phone_Nu
 			<input className='Phone_Number_Input_Field' onChange={Set_Phone_Number} type='tel' value={Phone_Number} />
 		</div>
 	</div>
-)
+}
 
 export default Phone_Number_Input_Field;
