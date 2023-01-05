@@ -1,5 +1,6 @@
 import Dropdown_Menu from '../../../../Components/Dropdown_Menu/Dropdown_Menu'
 import './POS_Editor.css';
+import Spinner from '../../../../Components/Spinner/Spinner'
 import Text_Input_Field from '../../../../Components/Text_Input_Field/Text_Input_Field';
 import { useEffect, useState } from 'react';
 
@@ -33,8 +34,8 @@ const POS_Editor = ({POS, Restaurant, Set_Restaurant}) =>
 
 	return (
 		<div className='POS_Editor' key='POS_Editor_Key'>
-			<Dropdown_Menu Function={Change_Point_of_Sale} Label='POS System' Options={POS.map (Business => Business.System)} Value={Point_of_Sale}></Dropdown_Menu>
-			<Text_Input_Field Color='#4D4D4D' Function={Change_API_Key} Label='API Key' Type='password' Value={API_Key}></Text_Input_Field>
+			{POS.length === 0 ? <Spinner></Spinner> : <><Dropdown_Menu Function={Change_Point_of_Sale} Label='POS System' Options={POS.map (Business => Business.System)} Value={Point_of_Sale}></Dropdown_Menu>
+			<Text_Input_Field Color='#4D4D4D' Function={Change_API_Key} Label='API Key' Type='password' Value={API_Key}></Text_Input_Field></>}
 		</div>
 	)
 }

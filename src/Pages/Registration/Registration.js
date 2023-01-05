@@ -21,7 +21,7 @@ const Registration = () =>
 	const [User, Set_User] = useContext (User_Context);
 	const [Username, Set_Username] = useState ('');
 	const [Website, Set_Website] = useState ('');
-	const navigate = useNavigate ()
+	const Navigate = useNavigate ()
 
 	const Go_Back_to_the_Previous_Step = () => Set_Step (Step - 1);
 
@@ -33,13 +33,8 @@ const Registration = () =>
 		Set_User (New_User);
 		if (New_User.Status === 201)
 		{
-			navigate ('/dashboard');
+			Navigate ('/dashboard');
 		}
-	}
-
-	const Pay_for_the_Subscription = () =>
-	{
-		console.log (1);
 	}
 
 	return (

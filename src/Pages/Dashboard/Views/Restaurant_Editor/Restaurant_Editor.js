@@ -111,7 +111,7 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 			<h2 className='Managers_Header'>Managers</h2>
 			<div className='Managers'>
 				{
-					Users.filter (User => User.Type !== 'Owner').map (User => Manager_Editing_Statuses [User.Username] ? <Manager_Editor Delete_the_User={() => Delete_the_User (User.Username)} Save_the_User={() => Save_the_User (User.Username)} User={User}></Manager_Editor> : <Manager_Card Delete_the_User={() => Delete_the_User (User.Username)} Edit_the_User={() => Edit_the_User (User.Username)} Email={User.Email} Username={User.Username}></Manager_Card>)
+					Users.filter (User => User.Type !== 'Owner').map (User => Manager_Editing_Statuses [User.Username] ? <Manager_Editor Delete_the_User={() => Delete_the_User (User.Username)} key={`${User.Username}_Edtior`} Save_the_User={() => Save_the_User (User.Username)} User={User}></Manager_Editor> : <Manager_Card Delete_the_User={() => Delete_the_User (User.Username)} Edit_the_User={() => Edit_the_User (User.Username)} Email={User.Email} Username={User.Username}></Manager_Card>)
 				}
 				{
 					New_User_Creation_Mode ? <Manager_Editor Delete_the_User={() => Set_New_User_Creation_Mode (false)} User={{New_Status: true}} Users={Users} Set_Users={Set_Users} Set_New_User_Creation_Mode={Set_New_User_Creation_Mode}></Manager_Editor> : <Addition_Button Color='#8068A8' Function={() => Set_New_User_Creation_Mode (true)}></Addition_Button>

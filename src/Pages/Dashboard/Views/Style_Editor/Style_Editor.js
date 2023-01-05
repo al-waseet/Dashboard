@@ -40,7 +40,7 @@ const Style_Editor = ({Restaurant, Set_Restaurant}) =>
 	}, []);
 
 	return (
-		<div className='Styling' key='Styling_Key'>
+		<div className='Styling' key='Style_Edtior_Key'>
 			<h2 className='Colors_Header'>Colors</h2>
 			<div className='Colors'>
 			{
