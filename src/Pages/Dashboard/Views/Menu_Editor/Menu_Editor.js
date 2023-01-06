@@ -20,8 +20,8 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 	const Add_an_Item = Menu_Item =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
-		Restaurant_Copy.Menu.push (Menu_Item)
-        console.log (Restaurant_Copy.Menu)
+        Menu_Item.File_Path = `/Images/${Restaurant.Name.replace (' ', '_')}/Menu/${Menu_Item.Name.replace (' ', '_')}.png`;
+		Restaurant_Copy.Menu.push (Menu_Item);
 		Set_Restaurant (Restaurant_Copy);
 	}
 
