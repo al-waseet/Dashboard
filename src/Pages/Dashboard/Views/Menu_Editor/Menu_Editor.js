@@ -29,10 +29,7 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
 		Restaurant_Copy.Categories.find (Category => Category.ID === ID).Banner_Image = Banner_Image;
-		if (Restaurant_Copy.Categories.find (Category => Category.ID === ID).File_Path === '')
-		{
-			Restaurant_Copy.Categories.find (Category => Category.ID === ID).File_Path = `/Images/${Restaurant.Name}/${Restaurant_Copy.Categories.find (Category => Category.ID === ID).Name}.png`;
-		}
+		Restaurant_Copy.Categories.find (Category => Category.ID === ID).File_Path = `/Images/${Restaurant.Name.replace (' ', '_')}/${Restaurant_Copy.Categories.find (Category => Category.ID === ID).Name.replace (' ', '_')}.png`;
 		Set_Restaurant (Restaurant_Copy)
 	}
 
@@ -71,10 +68,7 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 	const Save_the_Item = Updated_Menu_Item =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
-		if (Updated_Menu_Item.Image === '')
-		{
-			Updated_Menu_Item.File_Path = `/Images/${Restaurant.Name}/Menu/${Updated_Menu_Item.Name}.png`;
-		}
+		Updated_Menu_Item.File_Path = `/Images/${Restaurant.Name.replace (' ', '_')}/Menu/${Updated_Menu_Item.Name.replace (' ', '_')}.png`;
 		Restaurant_Copy.Menu [Restaurant_Copy.Menu.findIndex (Menu_Item => Menu_Item.ID === Updated_Menu_Item.ID)] = Updated_Menu_Item;
         Set_Restaurant (Restaurant_Copy);
 	}

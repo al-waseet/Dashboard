@@ -55,9 +55,13 @@ const Dashboard = () =>
 
 	const Save_the_Changes = () =>
 	{
-		API.Update_the_Restaurant (User.Restaurant);
+		API.Update_the_Restaurant (structuredClone (User.Restaurant));
+        //API.Update_the_Users (structuredClone (User.Users));
+        delete User.Restaurant;
+        delete User.Token;
+        delete User.Users;
 		API.Update_the_User (User);
-		//API.Update_the_Users (Users);
+		
 	}
 
 	const Set_Restaurant = (Restaurant) =>
