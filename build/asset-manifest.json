@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dashboard/static/css/main.0b89cce3.css",
-    "main.js": "/dashboard/static/js/main.b044a497.js",
+    "main.css": "/dashboard/static/css/main.cc64173e.css",
+    "main.js": "/dashboard/static/js/main.722748c7.js",
     "static/media/Not_Found_Page_Background_Photo_Left_Alignment.jpg": "/dashboard/static/media/Not_Found_Page_Background_Photo_Left_Alignment.7cc0afaa6106517cb656.jpg",
     "static/media/Placeholder_Card_Image.jpg": "/dashboard/static/media/Placeholder_Card_Image.3a0962d8c7f9b5b0125e.jpg",
     "static/media/Placeholder_Banner_Image.jpg": "/dashboard/static/media/Placeholder_Banner_Image.9832ea4627dc60446051.jpg",
@@ -19,7 +19,7 @@
     "static/media/Hamburger_Icon.svg": "/dashboard/static/media/Hamburger_Icon.5f4ce0af437aa5c13e6a01312bb97874.svg"
   },
   "entrypoints": [
-    "static/css/main.0b89cce3.css",
-    "static/js/main.b044a497.js"
+    "static/css/main.cc64173e.css",
+    "static/js/main.722748c7.js"
   ]
 }
