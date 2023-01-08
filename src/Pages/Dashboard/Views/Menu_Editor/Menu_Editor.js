@@ -29,7 +29,7 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
 		Restaurant_Copy.Categories.find (Category => Category.ID === ID).Banner_Image = Banner_Image;
-		Restaurant_Copy.Categories.find (Category => Category.ID === ID).File_Path = `/Images/${Restaurant.Name.replace (' ', '_')}/${Restaurant_Copy.Categories.find (Category => Category.ID === ID).Name.replace (' ', '_')}.png`;
+		Restaurant_Copy.Categories.find (Category => Category.ID === ID).File_Path = `/Images/${Restaurant.Name.replace (' ', '_')}/Menu/${Restaurant_Copy.Categories.find (Category => Category.ID === ID).Name.replace (' ', '_')}.png`;
 		Set_Restaurant (Restaurant_Copy)
 	}
 

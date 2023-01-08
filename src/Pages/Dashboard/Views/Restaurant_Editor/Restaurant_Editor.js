@@ -73,7 +73,7 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 		Set_Restaurant (Restaurant_Copy);
 	}
 
-	const Edit_the_User = (Username) => 
+	const Edit_the_User = Username => 
 	{
 		const Manager_Editing_Statuses_Copy = Object.assign ({}, Manager_Editing_Statuses);
 		Manager_Editing_Statuses_Copy [Username] = true;

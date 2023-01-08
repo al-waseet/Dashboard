@@ -20,7 +20,6 @@ const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Descrip
 	const [Card_Name, Set_Card_Name] = useState ('');
 	const [Card_Photo, Set_Card_Photo] = useState ('');
 	const [Card_Price, Set_Card_Price] = useState (0);
-
 	const [Side_Dishes_Enablement_Status, Set_Side_Dishes_Enablement_Status] = useState (false);
 
 	useEffect (() =>
@@ -62,6 +61,15 @@ const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Descrip
 			Price: Card_Price
 		}
 		Add_an_Item (New_Menu_Item);
+        Set_Addons_Enablement_Status (false);
+		Set_Card_Addons ([]);
+		Set_Card_Category ('');
+		Set_Card_Description ('');
+        Set_Card_ID (crypto.randomUUID ());
+		Set_Card_Name ('');
+		Set_Card_Photo (Photo);
+		Set_Card_Price (0);
+		Set_Side_Dishes_Enablement_Status (false);
 	}
 
 	const Delete_the_Addon = ID =>
