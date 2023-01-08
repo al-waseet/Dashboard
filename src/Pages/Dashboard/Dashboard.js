@@ -55,9 +55,14 @@ const Dashboard = () =>
 
 	const Save_the_Changes = () =>
 	{
+        const Pure_User = structuredClone (User)
+        delete Pure_User.Restaurant;
+        delete Pure_User.Token;
+        delete Pure_User.Users;
 		API.Update_the_Restaurant (User.Restaurant);
-		API.Update_the_User (User);
-		//API.Update_the_Users (Users);
+        //API.Update_the_Users (User.Users);
+		API.Update_the_User (Pure_User);
+		
 	}
 
 	const Set_Restaurant = (Restaurant) =>
@@ -85,7 +90,7 @@ const Dashboard = () =>
 				{User.Type === 'Owner' && <Tab Active_Tab={Active_Tab} ID='Design_Editor' Set_Active_Tab={Set_Active_Tab} Set_View_Title={Set_View_Title} Title='Design'></Tab>}
 				<Tab Active_Tab={Active_Tab} ID='Tables_and_QR_Editor' Set_Active_Tab={Set_Active_Tab} Set_View_Title={Set_View_Title} Title='Tables & QR'></Tab>
 				{User.Type === 'Owner' && <Tab Active_Tab={Active_Tab} ID='POS_Editor' Set_Active_Tab={Set_Active_Tab} Set_View_Title={Set_View_Title} Title='POS'></Tab>}
-				<p className='Copyright'>© 2022 al waseet</p>
+				<p className='Copyright'>© {new Date ().getFullYear ()} al waseet</p>
 			</nav>
 			<div className={'View_Section' + (Navigation_Panel_Display_Status ? ' Blurry_Overlay' : '')}>
 				<Header Log_Out={Log_Out} Navigation_Panel_Display_Status={Navigation_Panel_Display_Status} Profile_Picture={User.Avatar === '' ? null : User.Avatar} Section={View_Title} Set_Active_Tab={() => Set_Active_Tab ('Account_Editor')} Set_Navigation_Panel_Display_Status={Set_Navigation_Panel_Display_Status} Set_View_Title={() => Set_View_Title ('Account')}></Header>

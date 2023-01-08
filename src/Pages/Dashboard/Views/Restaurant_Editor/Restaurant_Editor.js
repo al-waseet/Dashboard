@@ -50,10 +50,7 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 		const New_Icon_in_Base64 = await Convert_Image_to_Base64 (New_Icon);
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
 		Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels = New_Icon_in_Base64;
-        if (Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels_File_Path === '')
-		{
-			Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Icon_512_Pixels.png`
-		}
+        Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Icon_512_Pixels.png`
 		Set_Icon (New_Icon_in_Base64);
 		Set_Restaurant (Restaurant_Copy);
 	}
@@ -63,10 +60,7 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 		const New_Logo_in_Base64 = await Convert_Image_to_Base64 (New_Logo);
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
 		Restaurant_Copy.Logo = New_Logo_in_Base64;
-        if (Restaurant_Copy.Icons.Logo_File_Path === '')
-		{
-			Restaurant_Copy.Icons.Logo_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Logo.png`
-		}
+        Restaurant_Copy.Logo_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Logo.png`
 		Set_Logo (New_Logo_in_Base64);
 		Set_Restaurant (Restaurant_Copy);
 	}
@@ -79,7 +73,7 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 		Set_Restaurant (Restaurant_Copy);
 	}
 
-	const Edit_the_User = (Username) => 
+	const Edit_the_User = Username => 
 	{
 		const Manager_Editing_Statuses_Copy = Object.assign ({}, Manager_Editing_Statuses);
 		Manager_Editing_Statuses_Copy [Username] = true;
@@ -111,7 +105,7 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 			<h2 className='Managers_Header'>Managers</h2>
 			<div className='Managers'>
 				{
-					Users.filter (User => User.Type !== 'Owner').map (User => Manager_Editing_Statuses [User.Username] ? <Manager_Editor Delete_the_User={() => Delete_the_User (User.Username)} Save_the_User={() => Save_the_User (User.Username)} User={User}></Manager_Editor> : <Manager_Card Delete_the_User={() => Delete_the_User (User.Username)} Edit_the_User={() => Edit_the_User (User.Username)} Email={User.Email} Username={User.Username}></Manager_Card>)
+					Users.filter (User => User.Type !== 'Owner').map (User => Manager_Editing_Statuses [User.Username] ? <Manager_Editor Delete_the_User={() => Delete_the_User (User.Username)} key={`${User.Username}_Edtior`} Save_the_User={() => Save_the_User (User.Username)} User={User}></Manager_Editor> : <Manager_Card Delete_the_User={() => Delete_the_User (User.Username)} Edit_the_User={() => Edit_the_User (User.Username)} Email={User.Email} Username={User.Username}></Manager_Card>)
 				}
 				{
 					New_User_Creation_Mode ? <Manager_Editor Delete_the_User={() => Set_New_User_Creation_Mode (false)} User={{New_Status: true}} Users={Users} Set_Users={Set_Users} Set_New_User_Creation_Mode={Set_New_User_Creation_Mode}></Manager_Editor> : <Addition_Button Color='#8068A8' Function={() => Set_New_User_Creation_Mode (true)}></Addition_Button>

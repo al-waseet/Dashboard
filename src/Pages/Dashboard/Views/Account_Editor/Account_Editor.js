@@ -30,10 +30,7 @@ const Account_Editor = ({Restaurant_Name, Set_User, User}) =>
 		const New_Avatar_in_Base64 = await Convert_Image_to_Base64 (New_Avatar);
 		const User_Copy = Object.assign ({}, User);
 		User_Copy.Avatar = New_Avatar_in_Base64;
-		if (User_Copy.Avatar_File_Path === '')
-		{
-			User_Copy.Avatar_File_Path = `/Images/${Restaurant_Name.replace (' ', '_')}/Profile_Pictures/${User_Copy.Username}_Profile_Picture.png`
-		}
+		User_Copy.Avatar_File_Path = `/Images/${Restaurant_Name.replace (' ', '_')}/Profile_Pictures/${User_Copy.Username}_Profile_Picture.png`;
 		Set_Avatar (New_Avatar_in_Base64);
 		Set_User (User_Copy);
 	}

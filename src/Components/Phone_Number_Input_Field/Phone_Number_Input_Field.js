@@ -545,7 +545,8 @@ const Country_Codes =
 	},
 	{
 		"Country": "Saint Helena",
-		"Code": "+290"
+		"Code": "+290",
+		"Flag": "🇸🇭"
 	},
 	{
 		"Country": "Eritrea",
@@ -1072,11 +1073,11 @@ const Country_Codes =
 		"Code": "+998",
 		"Flag": "🇺🇿"
 	}
-]
+];
 
 const Phone_Number_Input_Field = ({Phone_Number, Phone_Number_Code, Set_Phone_Number, Set_Phone_Number_Code}) => 
 {
-    const [Option_Showing_Status, Set_Option_Showing_Status] = useState (false);
+	const [Option_Showing_Status, Set_Option_Showing_Status] = useState (false);
 	const Phone_Number_Code_Form_Reference = useRef();
 
 	const Press_the_Escape_Button = (Event) => 
@@ -1107,12 +1108,12 @@ const Phone_Number_Input_Field = ({Phone_Number, Phone_Number_Code, Set_Phone_Nu
 			<form className='Phone_Number_Code_Form' onKeyDown={Press_the_Escape_Button} ref={Phone_Number_Code_Form_Reference}>
 				<input checked={Option_Showing_Status} className='Phone_Number_Code_Controller' onChange={(Event) => Set_Option_Showing_Status (!Option_Showing_Status)} type="checkbox" />
 				<div className='Phone_Number_Code_Box'>
-					<div className='Phone_Number_Code_Selected_Value' style={(!Option_Showing_Status && Phone_Number_Code === undefined) ? {visibility: 'hidden'} : null}><span>+0</span></div>
+					<div className='Phone_Number_Code_Selected_Value' style={!Option_Showing_Status ? {visibility: 'hidden'} : null}><span>+0</span></div>
 					<div className='Phone_Number_Code_Arrow_Icon'></div>
 				</div>
 				<div className='Phone_Number_Code_Options'>
 					{Country_Codes.map (Country_Code =>
-					<div className='Phone_Number_Code_Option' key={Country_Code.Country} onClick={() => Set_Option_Showing_Status (!Option_Showing_Status)}>
+					<div className='Phone_Number_Code_Option' onClick={() => Set_Option_Showing_Status (!Option_Showing_Status)} key={Country_Code.Country}>
 						<input className='Phone_Number_Selection_Controller Top_Half' defaultChecked={Country_Code.Code === Phone_Number_Code} name='Phone_Number' onChange={Set_Phone_Number_Code} type='radio' />
 						<input className='Phone_Number_Selection_Controller Bottom_Half' defaultChecked={Country_Code.Code === Phone_Number_Code} name='Phone_Number' onChange={Set_Phone_Number_Code} type='radio' />
 						<span className='Phone_Number_Option_Label'>{Country_Code.Flag + ' ' + Country_Code.Code}</span>
