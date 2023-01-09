@@ -3,7 +3,6 @@ import Addon from '../Addon/Addon';
 import Button from '../Button/Button';
 import './Card.css';
 import Checkbox from '../Checkbox/Checkbox';
-import {Convert_Image_to_Base64} from '../../Helpers';
 import Deletion_Button from '../Deletion_Button/Deletion_Button';
 import Image_Selector from '../Image_Selector/Image_Selector';
 import Text_Area from '../Text_Area/Text_Area';
@@ -42,11 +41,7 @@ const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Descrip
 		Set_Card_Addons (Addons_Copy);
 	}
 
-	const Change_the_Photo = async New_Photo =>
-	{
-		const New_Photo_in_Base64 = await Convert_Image_to_Base64 (New_Photo);
-		Set_Card_Photo (New_Photo_in_Base64);
-	}
+	const Change_the_Photo = async New_Photo => Set_Card_Photo (URL.createObjectURL (New_Photo));
 
 	const Create_an_Item = () =>
 	{

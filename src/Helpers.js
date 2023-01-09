@@ -1,5 +1,3 @@
-export const Go_to_Another_Page = (Navigate, URL_Path) => process.env.REACT_APP_Environment === 'Production' ? Navigate (URL_Path) : window.location.href = URL_Path;
-
 export const Convert_Image_to_Base64 = Image_File => new Promise ((Resolve, Reject) => 
 {
     const Image_File_Reader = new FileReader ();

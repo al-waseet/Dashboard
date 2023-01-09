@@ -34,7 +34,7 @@ const POS_Editor = ({POS, Restaurant, Set_Restaurant}) =>
 
 	return (
 		<div className='POS_Editor' key='POS_Editor_Key'>
-			{POS.length === 0 ? <Spinner></Spinner> : <><Dropdown_Menu Function={Change_Point_of_Sale} Label='POS System' Options={POS.map (Business => Business.System)} Value={Point_of_Sale}></Dropdown_Menu>
+			{POS === undefined ? <Spinner></Spinner> : <><Dropdown_Menu Function={Change_Point_of_Sale} Label='POS System' Options={POS.map (Business => Business.System)} Value={Point_of_Sale}></Dropdown_Menu>
 			<Text_Input_Field Color='#4D4D4D' Function={Change_API_Key} Label='API Key' Type='password' Value={API_Key}></Text_Input_Field></>}
 		</div>
 	)

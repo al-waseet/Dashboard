@@ -1,5 +1,4 @@
 import Addition_Button from '../../../../Components/Addition_Button/Addition_Button';
-import {Convert_Image_to_Base64} from '../../../../Helpers';
 import Icon_Selector from '../../../../Components/Icon_Selector/Icon_Selector';
 import Logo_Selector from '../../../../Components/Logo_Selector/Logo_Selector';
 import Manager_Card from '../../../../Components/Manager_Card/Manager_Card';
@@ -47,21 +46,19 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 
 	const Change_the_Restaurant_Icon = async New_Icon =>
 	{
-		const New_Icon_in_Base64 = await Convert_Image_to_Base64 (New_Icon);
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
-		Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels = New_Icon_in_Base64;
+		Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels = URL.createObjectURL (New_Icon);
         Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Icon_512_Pixels.png`
-		Set_Icon (New_Icon_in_Base64);
+		Set_Icon (Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels);
 		Set_Restaurant (Restaurant_Copy);
 	}
 
 	const Change_the_Restaurant_Logo = async New_Logo =>
 	{
-		const New_Logo_in_Base64 = await Convert_Image_to_Base64 (New_Logo);
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
-		Restaurant_Copy.Logo = New_Logo_in_Base64;
+		Restaurant_Copy.Logo = URL.createObjectURL (New_Logo);
         Restaurant_Copy.Logo_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Logo.png`
-		Set_Logo (New_Logo_in_Base64);
+		Set_Logo (Restaurant_Copy.Logo);
 		Set_Restaurant (Restaurant_Copy);
 	}
 

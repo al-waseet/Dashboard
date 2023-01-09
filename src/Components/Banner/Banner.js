@@ -1,6 +1,5 @@
 import {ReactComponent as Arrow_Down} from '../../Images/Arrow_Down.svg'
 import './Banner.css';
-import {Convert_Image_to_Base64} from '../../Helpers';
 import Deletion_Button from '../Deletion_Button/Deletion_Button';
 import Image_Button from '../Image_Button/Image_Button';
 import { useEffect, useState } from "react";
@@ -24,9 +23,9 @@ const Banner = ({Category, Change_the_Banner_Image, Change_the_Banner_Name, Dele
 
     const Change_the_Banner_Image_Value = async New_Image =>
     {
-        const New_Image_in_Base64 = await Convert_Image_to_Base64 (New_Image);
-        Set_Banner_Image (New_Image_in_Base64);
-        Change_the_Banner_Image (New_Image_in_Base64, Category.ID);
+        New_Image = URL.createObjectURL (New_Image);
+        Set_Banner_Image (New_Image);
+        Change_the_Banner_Image (New_Image, Category.ID);
     }
 
 	return <div className='Banner' id={ID} style={{backgroundImage: `url(${Banner_Image})`}}>

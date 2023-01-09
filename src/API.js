@@ -1,4 +1,5 @@
 import { Configuration } from "./Configuration";
+import { Convert_Image_to_Base64 } from './Helpers'
 
 const API = 
 {
@@ -14,7 +15,6 @@ const API =
 		{
 			Category.File_Path = Category.Banner_Image;
 			Category.Banner_Image = Configuration.COS_URL + Category.Banner_Image;
-			
 		});
 		Restaurant.Data.Cart_Icon_File_Path = Restaurant.Data.Cart_Icon;
 		Restaurant.Data.Cart_Icon = Configuration.COS_URL + Restaurant.Data.Cart_Icon;
@@ -50,6 +50,35 @@ const API =
 
 	Update_the_Restaurant: async (Restaurant) =>
 	{
+		Restaurant.Categories.forEach (Category => 
+		{
+			if (Category.Banner_Image.includes ('blob:'))
+			{
+				Category.Banner_Image = Convert_Image_to_Base64 (Category.Banner_Image);
+			}
+		});
+		if (Restaurant.Cart_Icon.includes ('blob:'))
+		{
+			Restaurant.Cart_Icon = Convert_Image_to_Base64 (Restaurant.Cart_Icon);
+		}
+		Object.keys (Restaurant.Icons).forEach (Key =>
+		{
+			if (Restaurant.Icons [Key].includes ('blob:'))
+			{
+				Restaurant.Icons [Key] = Convert_Image_to_Base64 (Restaurant.Icons [Key]);
+			}
+		});
+		Restaurant.Data.Menu.forEach (Menu_Item => 
+		{
+			if (Menu_Item.Image.includes ('blob:'))
+			{
+				Menu_Item.Image = Convert_Image_to_Base64 (Menu_Item.Image);
+			}
+		}); 
+		if (Restaurant.Logo.includes ('blob:'))
+		{
+			Restaurant.Logo = Convert_Image_to_Base64 (Restaurant.Logo);
+		}
 		return await (await fetch (Configuration.API_URL + '/restaurant', {method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify (Restaurant)}));
 	},
 
