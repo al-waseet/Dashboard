@@ -1,6 +1,7 @@
 import Addition_Button from '../../../../Components/Addition_Button/Addition_Button'
 import Banner from '../../../../Components/Banner/Banner';
 import Card from '../../../../Components/Card/Card';
+import { Get_the_File_Extension } from '../../../../Helpers';
 import './Menu_Editor.css';
 import Placeholder_Banner_Image from '../../../../Images/Placeholder_Banner_Image.jpg';
 import Placeholder_Card_Image from '../../../../Images/Placeholder_Card_Image.jpg';
@@ -20,7 +21,7 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 	const Add_an_Item = Menu_Item =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
-        Menu_Item.File_Path = `/Images/${Restaurant.Name.replace (' ', '_')}/Menu/${Menu_Item.Name.replace (' ', '_')}.png`;
+		Menu_Item.File_Path = `/Images/${Restaurant.Name.replace (' ', '_')}/Menu/${Menu_Item.Name.replace (' ', '_')}${Get_the_File_Extension (Menu_Item.Image.type)}`;
 		Restaurant_Copy.Menu.push (Menu_Item);
 		Set_Restaurant (Restaurant_Copy);
 	}
@@ -29,7 +30,7 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
 		Restaurant_Copy.Categories.find (Category => Category.ID === ID).Banner_Image = Banner_Image;
-		Restaurant_Copy.Categories.find (Category => Category.ID === ID).File_Path = `/Images/${Restaurant.Name.replace (' ', '_')}/Menu/${Restaurant_Copy.Categories.find (Category => Category.ID === ID).Name.replace (' ', '_')}.png`;
+		Restaurant_Copy.Categories.find (Category => Category.ID === ID).File_Path = `/Images/${Restaurant.Name.replace (' ', '_')}/Menu/${Restaurant_Copy.Categories.find (Category => Category.ID === ID).Name.replace (' ', '_')}${Get_the_File_Extension (Banner_Image.type)}`;
 		Set_Restaurant (Restaurant_Copy)
 	}
 
@@ -68,9 +69,9 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 	const Save_the_Item = Updated_Menu_Item =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
-		Updated_Menu_Item.File_Path = `/Images/${Restaurant.Name.replace (' ', '_')}/Menu/${Updated_Menu_Item.Name.replace (' ', '_')}.png`;
+		Updated_Menu_Item.File_Path = `/Images/${Restaurant.Name.replace (' ', '_')}/Menu/${Updated_Menu_Item.Name.replace (' ', '_')}${Get_the_File_Extension (Updated_Menu_Item.Image.type)}`;
 		Restaurant_Copy.Menu [Restaurant_Copy.Menu.findIndex (Menu_Item => Menu_Item.ID === Updated_Menu_Item.ID)] = Updated_Menu_Item;
-        Set_Restaurant (Restaurant_Copy);
+		Set_Restaurant (Restaurant_Copy);
 	}
 
 	const Toggle_the_Customization_Menu = Category =>

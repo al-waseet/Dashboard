@@ -1,4 +1,5 @@
 import Addition_Button from '../../../../Components/Addition_Button/Addition_Button';
+import { Get_the_File_Extension } from '../../../../Helpers';
 import Icon_Selector from '../../../../Components/Icon_Selector/Icon_Selector';
 import Logo_Selector from '../../../../Components/Logo_Selector/Logo_Selector';
 import Manager_Card from '../../../../Components/Manager_Card/Manager_Card';
@@ -48,7 +49,7 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
 		Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels = URL.createObjectURL (New_Icon);
-        Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Icon_512_Pixels.png`
+		Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Icon_512_Pixels${Get_the_File_Extension (Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels.type)}`
 		Set_Icon (Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels);
 		Set_Restaurant (Restaurant_Copy);
 	}
@@ -57,7 +58,7 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
 		Restaurant_Copy.Logo = URL.createObjectURL (New_Logo);
-        Restaurant_Copy.Logo_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Logo.png`
+		Restaurant_Copy.Logo_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Logo${Get_the_File_Extension (Restaurant_Copy.Icons.Restaurant_Copy.Logo.type)}`
 		Set_Logo (Restaurant_Copy.Logo);
 		Set_Restaurant (Restaurant_Copy);
 	}
@@ -97,7 +98,7 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 				<Text_Input_Field Label="Name" Function={Change_the_Name} Value={Name}></Text_Input_Field>
 				<Text_Input_Field Label="Address" Function={Change_the_Address} Value={Address}></Text_Input_Field>
 				<Text_Input_Field Label="Website" Function={Change_the_Website} Value={Website}></Text_Input_Field>
-                <Text_Input_Field Disabled_Status={true} Label="Branch" Value={Restaurant.Branch}></Text_Input_Field>
+				<Text_Input_Field Disabled_Status={true} Label="Branch" Value={Restaurant.Branch}></Text_Input_Field>
 			</div>
 			<h2 className='Managers_Header'>Managers</h2>
 			<div className='Managers'>

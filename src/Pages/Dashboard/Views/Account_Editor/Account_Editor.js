@@ -1,5 +1,6 @@
 import './Account_Editor.css';
 //import Button from '../../../../Components/Button/Button';
+import { Get_the_File_Extension } from '../../../../Helpers';
 import Icon_Selector from '../../../../Components/Icon_Selector/Icon_Selector';
 import Password_Editor from '../../../../Components/Password_Editor/Password_Editor';
 import Phone_Number_Input_Field from '../../../../Components/Phone_Number_Input_Field/Phone_Number_Input_Field';
@@ -27,9 +28,9 @@ const Account_Editor = ({Restaurant_Name, Set_User, User}) =>
 	const Change_the_Avatar = async New_Avatar =>
 	{
 		const User_Copy = Object.assign ({}, User);
-        User_Copy.Avatar = URL.createObjectURL (New_Avatar);
-		User_Copy.Avatar_File_Path = `/Images/${Restaurant_Name.replace (' ', '_')}/Profile_Pictures/${User_Copy.Username}_Profile_Picture.png`;
-        Set_Avatar (User_Copy.Avatar);
+		User_Copy.Avatar = URL.createObjectURL (New_Avatar);
+		User_Copy.Avatar_File_Path = `/Images/${Restaurant_Name.replace (' ', '_')}/Profile_Pictures/${User_Copy.Username}_Profile_Picture${Get_the_File_Extension (User_Copy.Avatar.type)}`;
+		Set_Avatar (User_Copy.Avatar);
 		Set_User (User_Copy);
 	}
 
