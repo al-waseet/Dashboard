@@ -1,5 +1,6 @@
 import Addition_Button from '../../../../Components/Addition_Button/Addition_Button';
 import { Get_the_File_Extension } from '../../../../Helpers';
+import Grid from '../../../../Components/Grid/Grid';
 import Icon_Selector from '../../../../Components/Icon_Selector/Icon_Selector';
 import Logo_Selector from '../../../../Components/Logo_Selector/Logo_Selector';
 import Manager_Card from '../../../../Components/Manager_Card/Manager_Card';
@@ -90,15 +91,19 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 	return (
 		<div className='Restaurant_Editor' key='Restaurant_Editor_Key'>
 			<h2 className='View_Header'>General Information</h2>
-			<div className='Restaurant_Logos'>
-				<Icon_Selector Current_Image={Icon} Function={(Event) => Change_the_Restaurant_Icon (Event.target.files [0])}></Icon_Selector>
-				<Logo_Selector Current_Image={Logo} Function={(Event) => Change_the_Restaurant_Logo (Event.target.files [0])}></Logo_Selector>
-			</div>
-			<div className='Restaurant_Information'>
-				<Text_Input_Field Label="Name" Function={Change_the_Name} Value={Name}></Text_Input_Field>
-				<Text_Input_Field Label="Address" Function={Change_the_Address} Value={Address}></Text_Input_Field>
-				<Text_Input_Field Label="Website" Function={Change_the_Website} Value={Website}></Text_Input_Field>
-				<Text_Input_Field Disabled_Status={true} Label="Branch" Value={Restaurant.Branch}></Text_Input_Field>
+			<div className='General_Information_Edtior'>
+				<Grid>
+					<div style={{justifySelf: 'flex-start'}}>
+						<Icon_Selector Current_Image={Icon} Function={(Event) => Change_the_Restaurant_Icon (Event.target.files [0])}></Icon_Selector>
+					</div>
+					<Logo_Selector Current_Image={Logo} Function={(Event) => Change_the_Restaurant_Logo (Event.target.files [0])}></Logo_Selector>
+				</Grid>
+				<Grid>
+					<Text_Input_Field Label="Restaurant Name" Function={Change_the_Name} Value={Name}></Text_Input_Field>
+					<Text_Input_Field Label="Address" Function={Change_the_Address} Value={Address}></Text_Input_Field>
+					<Text_Input_Field Label="Website" Function={Change_the_Website} Value={Website}></Text_Input_Field>
+					<Text_Input_Field Label="Branch" Value={Restaurant.Branch}></Text_Input_Field>
+				</Grid>
 			</div>
 			<h2 className='Managers_Header'>Managers</h2>
 			<div className='Managers'>

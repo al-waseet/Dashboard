@@ -26,3 +26,9 @@
 {
 	max-width: 100%;
 }
+
+.Forgot_Password_Field
+{
+	text-decoration: underline;
+	cursor: pointer;
+}

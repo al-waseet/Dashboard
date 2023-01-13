@@ -12,6 +12,7 @@ const Authentication = () =>
 {
 	const [Username, Set_Username] = useState ('');
 	const [Password, Set_Password] = useState ('');
+	const [Password_Reset_Mode, Set_Password_Reset_Mode] = useState (false);
 	const [User, Set_User] = useContext (User_Context);
 	const Navigate = useNavigate ()
 
@@ -47,14 +48,23 @@ const Authentication = () =>
 		}
 	}
 
+	const Send_a_Link_to_Reset_the_Password = async () =>
+	{
+		//await API.Send_an_Email ({Username});
+		setTimeout (() =>
+		{
+			window.location.href = 'https://alwaseet.me';
+		}, 5000);
+	}
+
 	return (
 		<div className='Authentication'>
 			<div className='Input_Area'>
 				<img alt='al waseet Banner' className='Authentication_Banner' src={al_waseet_Banner}></img>
 				<Text_Input_Field Label='Username' Function={Set_Username} Purpose="Username" Type="text"></Text_Input_Field>
-				<Text_Input_Field Label='Password' Function={Set_Password} Purpose="Password" Type="password"></Text_Input_Field>
-				<div>Forgot password?</div>
-				<Button Function={Log_In} Text="Log In"></Button>
+				{!Password_Reset_Mode && <Text_Input_Field Label='Password' Function={Set_Password} Purpose="Password" Type="password"></Text_Input_Field>}
+				<div className='Forgot_Password_Field' onClick={() => Set_Password_Reset_Mode (!Password_Reset_Mode)}>{!Password_Reset_Mode ? 'Forgot the password?' : 'Remembered the password?'}</div>
+				<Button Function={Password_Reset_Mode ? Send_a_Link_to_Reset_the_Password : Log_In} Text={Send_a_Link_to_Reset_the_Password ? "Reset" : "Log In"}></Button>
 			</div>
 		</div>
 	);

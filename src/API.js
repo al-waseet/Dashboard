@@ -48,6 +48,11 @@ const API =
 		return await (await fetch (Configuration.API_URL + '/register', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify (User_Information)})).json ();
 	},
 
+	Send_an_Email: async (Email) =>
+	{
+		return await (await fetch (Configuration.API_URL + '/email', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify (Email)}));
+	},
+
 	Update_the_Restaurant: async (Restaurant) =>
 	{
 		Restaurant.Categories.forEach (Category => 
