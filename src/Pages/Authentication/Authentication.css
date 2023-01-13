@@ -21,3 +21,8 @@
 	align-self: center;
     gap: 1rem;
 }
+
+.Authentication_Banner
+{
+	max-width: 100%;
+}

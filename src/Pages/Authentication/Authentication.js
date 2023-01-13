@@ -53,6 +53,7 @@ const Authentication = () =>
 				<img alt='al waseet Banner' className='Authentication_Banner' src={al_waseet_Banner}></img>
 				<Text_Input_Field Label='Username' Function={Set_Username} Purpose="Username" Type="text"></Text_Input_Field>
 				<Text_Input_Field Label='Password' Function={Set_Password} Purpose="Password" Type="password"></Text_Input_Field>
+				<div>Forgot password?</div>
 				<Button Function={Log_In} Text="Log In"></Button>
 			</div>
 		</div>

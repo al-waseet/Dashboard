@@ -1,6 +1,7 @@
 import './Account_Editor.css';
 //import Button from '../../../../Components/Button/Button';
 import { Get_the_File_Extension } from '../../../../Helpers';
+import Grid from '../../../../Components/Grid/Grid';
 import Icon_Selector from '../../../../Components/Icon_Selector/Icon_Selector';
 import Password_Editor from '../../../../Components/Password_Editor/Password_Editor';
 import Phone_Number_Input_Field from '../../../../Components/Phone_Number_Input_Field/Phone_Number_Input_Field';
@@ -69,13 +70,15 @@ const Account_Editor = ({Restaurant_Name, Set_User, User}) =>
 		<div className='Account_Editor' key='Account_Editor_Key'>
 			<h2 className='View_Header'>User Information</h2>
 			<div className='Account_Information'>
-				<div className='Credentials'>
+				<div style={{alignSelf: 'flex-start'}}>
+					<Icon_Selector Current_Image={Avatar} Function={(Event) => Change_the_Avatar (Event.target.files [0])}></Icon_Selector>
+				</div>
+				<Grid>
 					<Text_Input_Field Function={Change_the_Username} Label="Username" Value={Username}></Text_Input_Field>
 					<Password_Editor Function={Change_the_Password} Password={Password}></Password_Editor>
 					<Text_Input_Field Function={Change_the_Email} Label="Email" Value={Email}></Text_Input_Field>
 					<Phone_Number_Input_Field Phone_Number={Phone_Number} Phone_Number_Code={Phone_Number_Code} Set_Phone_Number={Set_Phone_Number} Set_Phone_Number_Code={Set_Phone_Number_Code}></Phone_Number_Input_Field>
-				</div>
-				<Icon_Selector Current_Image={Avatar} Function={(Event) => Change_the_Avatar (Event.target.files [0])}></Icon_Selector>
+				</Grid>
 			</div>
 			{/*<h2 className='Payment_Methods_Header'>Payment Cards</h2>
 			<div className='Payment_Methods'>

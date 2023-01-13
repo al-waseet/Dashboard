@@ -1,17 +1,12 @@
 .Account_Information
 {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
-	gap: 4rem;
+	display: flex;
+	flex-direction: column;
 	padding-top: 2rem;
-}
-
-.Credentials
-{
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
 	gap: 2rem;
 }
+
+/*
 
 .Payment_Methods_Header
 {
@@ -54,3 +49,5 @@
     flex-direction: row;
     gap: 2rem;
 }
+
+*/
