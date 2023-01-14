@@ -19,8 +19,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-	height: 2rem;
-	width: 2rem;
 }
 
 .Button_Icon_on_a_Row

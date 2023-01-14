@@ -1122,7 +1122,7 @@ const Phone_Number_Input_Field = ({Phone_Number, Phone_Number_Code, Set_Phone_Nu
 					<div className='Phone_Number_Option_Background'></div>
 				</div>
 			</form>
-			<input className='Phone_Number_Input_Field' onChange={Set_Phone_Number} type='tel' value={Phone_Number} />
+			<input className='Phone_Number_Input_Field' onChange={(Event) => Set_Phone_Number (Event.target.value)} type='tel' value={Phone_Number} />
 		</div>
 	</div>
 }

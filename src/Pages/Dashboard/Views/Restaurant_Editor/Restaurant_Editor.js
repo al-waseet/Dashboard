@@ -59,7 +59,7 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
 		Restaurant_Copy.Logo = URL.createObjectURL (New_Logo);
-		Restaurant_Copy.Logo_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Logo${Get_the_File_Extension (Restaurant_Copy.Icons.Restaurant_Copy.Logo.type)}`
+		Restaurant_Copy.Logo_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Logo${Get_the_File_Extension (Restaurant_Copy.Logo.type)}`
 		Set_Logo (Restaurant_Copy.Logo);
 		Set_Restaurant (Restaurant_Copy);
 	}

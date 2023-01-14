@@ -55,7 +55,7 @@ const Dashboard = () =>
 
 	const Save_the_Changes = () =>
 	{
-        const Pure_User = structuredClone (User)
+        const Pure_User = structuredClone (User);
         delete Pure_User.Restaurant;
         delete Pure_User.Token;
         delete Pure_User.Users;

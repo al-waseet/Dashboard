@@ -15,11 +15,12 @@
     border: 2px solid #4D4D4D;
     border-radius: 0.5rem;
     background-color: white;
-    padding: 4rem;
+    padding: 2rem 4rem;
     display: flex;
     flex-direction: column;
 	align-self: center;
     gap: 1rem;
+    max-width: 200px;
 }
 
 .Authentication_Banner
