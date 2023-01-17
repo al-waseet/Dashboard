@@ -55,7 +55,26 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
+    animation: fadeIn 500ms;
+}
+
+@keyframes fadeIn 
+{
+    0% 
+    { 
+        opacity: 0; 
+    }
+    50% 
+    {
+        opacity: 0.5; 
+        transform: scale(1.1);
+    }
+    100% 
+    { 
+        opacity: 1; 
+        transform: scale(1);
+    }
 }
 
 .Text_Input_Error
