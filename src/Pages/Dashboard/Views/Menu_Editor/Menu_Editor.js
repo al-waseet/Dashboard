@@ -41,6 +41,18 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 		Set_Restaurant (Restaurant_Copy)
 	}
 
+    const Change_The_Order_of_the_Categories = (Source_ID, Target_ID) =>
+	{
+        console.log (Source_ID);
+        console.log (Target_ID);
+		const Restaurant_Copy = structuredClone (Restaurant);
+		const Source_Index = Restaurant.Categories.findIndex (Category => Category.ID === Source_ID);
+		const Target_Index = Restaurant.Categories.findIndex (Category => Category.ID === Target_ID);
+		Restaurant_Copy.Categories [Source_Index] = structuredClone (Restaurant.Categories [Target_Index]);
+		Restaurant_Copy.Categories [Target_Index] = structuredClone (Restaurant.Categories [Source_Index]);
+		Set_Restaurant (Restaurant_Copy);
+	}
+
 	const Change_The_Order_of_the_Menu_Items = (Source_ID, Target_ID) =>
 	{
 		const Restaurant_Copy = structuredClone (Restaurant);
@@ -86,23 +98,42 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 		Set_Display_Statuses (Restaurant.Categories.map (Category => Category.Name).reduce ((Category_Name, Index) => (Category_Name [Index] = false, Category_Name), {}));
 	}, [])
 
-	const Drag = Event =>
+    const Drag_the_Banner = Event =>
+	{
+		while (!Event.target.classList.contains ('Banner'))
+		{
+			Event.target = Event.target.parentElement;
+		}
+		Event.dataTransfer.setData ("Banner", Event.target.id);
+	}
+
+	const Drag_the_Card = Event =>
 	{
 		while (!Event.target.classList.contains ('Card'))
 		{
 			Event.target = Event.target.parentElement;
 		}
-		Event.dataTransfer.setData ("text", Event.target.id);
+		Event.dataTransfer.setData ("Card", Event.target.id);
+	}
+
+    const Drop_the_Banner = Event => 
+	{
+		Event.preventDefault ();
+		while (!Event.target.classList.contains ('Banner'))
+		{
+			Event.target = Event.target.parentElement;
+		}
+		Change_The_Order_of_the_Categories (Event.dataTransfer.getData ("Banner"), Event.target.id);
 	}
 	
-	const Drop = Event => 
+	const Drop_the_Card = Event => 
 	{
 		Event.preventDefault ();
 		while (!Event.target.classList.contains ('Card'))
 		{
 			Event.target = Event.target.parentElement;
 		}
-		Change_The_Order_of_the_Menu_Items (Event.dataTransfer.getData ("text"), Event.target.id);
+		Change_The_Order_of_the_Menu_Items (Event.dataTransfer.getData ("Card"), Event.target.id);
 	}
 
 	return (
@@ -110,8 +141,8 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 			{
 				Restaurant.Categories.map (Category =>
 					<div className='Category'>
-						<Banner Category={Category} Change_the_Banner_Image={Change_the_Banner_Image} Change_the_Banner_Name={Change_the_Banner_Name} Delete_the_Category={() => Delete_the_Category (Category.Name)} ID={Category.ID} Toggle={() => Toggle_the_Customization_Menu (Category.Name)} Toggle_Status={Display_Statuses [Category.Name]}></Banner>
-						{Display_Statuses [Category.Name] && Restaurant.Menu.filter (Menu_Item => Menu_Item.Category === Category.Name).map (Menu_Item => <Card Addons={Menu_Item.Addons} Category={Menu_Item.Category} Currency={Restaurant.Currency} Delete_the_Item={Delete_the_Item} Description={Menu_Item.Description} Drag={Drag} Drop={Drop} ID={Menu_Item.ID} Name={Menu_Item.Name} New_Item_Status={false} Photo={Menu_Item.Image} Price={Menu_Item.Price} Save_the_Item={Save_the_Item}></Card>)}
+						<Banner Category={Category} Change_the_Banner_Image={Change_the_Banner_Image} Change_the_Banner_Name={Change_the_Banner_Name} Drag={Drag_the_Banner} Drop={Drop_the_Banner} Delete_the_Category={() => Delete_the_Category (Category.Name)} ID={Category.ID} New_Category_Status={!Category.Name} Toggle={() => Toggle_the_Customization_Menu (Category.Name)} Toggle_Status={Display_Statuses [Category.Name]}></Banner>
+						{Display_Statuses [Category.Name] && Restaurant.Menu.filter (Menu_Item => Menu_Item.Category === Category.Name).map (Menu_Item => <Card Addons={Menu_Item.Addons} Category={Menu_Item.Category} Currency={Restaurant.Currency} Delete_the_Item={Delete_the_Item} Description={Menu_Item.Description} Drag={Drag_the_Card} Drop={Drop_the_Card} ID={Menu_Item.ID} Name={Menu_Item.Name} New_Item_Status={false} Photo={Menu_Item.Image} Price={Menu_Item.Price} Save_the_Item={Save_the_Item}></Card>)}
 						{Display_Statuses [Category.Name] && <Card Add_an_Item={Add_an_Item} Addons={[]} Category={Category.Name} Currency={Restaurant.Currency} Photo={Placeholder_Card_Image} New_Item_Status={true}></Card>}
 					</div>)
 			}

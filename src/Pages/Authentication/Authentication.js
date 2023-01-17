@@ -25,6 +25,7 @@ const Authentication = () =>
 
 	const Log_In = async () =>
 	{
+        Set_Incorrect_Credentials_Status (false);
 		if (Username === '' || Password === '')
 		{
 			Set_Username_Field_Status (!Username);
