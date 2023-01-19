@@ -4,26 +4,17 @@
 	flex-direction: row;
 	gap: 1rem;
     flex-wrap: wrap;
+    align-items: center;
 }
 
-.Price_Container
+.Addon_Container > div
 {
-    display: flex;
-	flex-direction: row;
-	gap: 1rem;
-}
-
-.Button_on_a_Row
-{
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-grow: 1;
 }
 
 .Button_Icon_on_a_Row
 {
-    align-self: center;
-	height: 1.5rem;
-	width: 1.5rem;
+    cursor: pointer;
+	height: 1.25rem;
+	width: 1.25rem;
 }

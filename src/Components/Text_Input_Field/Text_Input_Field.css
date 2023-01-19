@@ -91,3 +91,13 @@
 	cursor: not-allowed;
 	background-color: #DDDDDD;
 }
+
+.Text_Input_Field::-webkit-outer-spin-button, .Text_Input_Field::-webkit-inner-spin-button 
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+.Text_Input_Field[type=number] 
+{
+    -moz-appearance: textfield;
+}
