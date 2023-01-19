@@ -48,9 +48,8 @@ const Dashboard = () =>
 
 	const Preview_the_Changes = () =>
 	{
-		const Restaurant_Preview_Channel = new BroadcastChannel ('Restaurant_Preview');
-		Restaurant_Preview_Channel.postMessage (JSON.stringify (User.Restaurant));
-		window.open (`${Configuration.Ordering_Application_URL}/preview`, '_blank');
+		const Restaurant_Preview_Window = window.open (`${Configuration.Ordering_Application_URL}/preview`);
+        Restaurant_Preview_Window.window.Restaurant_Preview = JSON.stringify (User.Restaurant);
 	}
 
 	const Save_the_Changes = () =>
