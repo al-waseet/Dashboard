@@ -48,6 +48,13 @@ const Dashboard = () =>
 
 	const Preview_the_Changes = () =>
 	{
+        const Socket = new WebSocket ('ws://localhost:3002');
+
+        Socket.addEventListener ('open', Event => 
+        {
+            Socket.send ('Hello Server!');
+        });
+
 		const Restaurant_Preview_Window = window.open (`${Configuration.Ordering_Application_URL}/preview`);
         Restaurant_Preview_Window.window.Restaurant_Preview = JSON.stringify (User.Restaurant);
 	}
