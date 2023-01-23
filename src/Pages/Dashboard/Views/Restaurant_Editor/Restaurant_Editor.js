@@ -94,9 +94,11 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 			<div className='General_Information_Edtior'>
 				<Grid>
 					<div style={{justifySelf: 'flex-start'}}>
-						<Icon_Selector Current_Image={Icon} Function={(Event) => Change_the_Restaurant_Icon (Event.target.files [0])}></Icon_Selector>
+						<Icon_Selector Current_Image={Icon} Function={(Event) => Change_the_Restaurant_Icon (Event.target.files [0])} ID='Restaurant_Icon'></Icon_Selector>
 					</div>
-					<Logo_Selector Current_Image={Logo} Function={(Event) => Change_the_Restaurant_Logo (Event.target.files [0])}></Logo_Selector>
+					<div style={{alignSelf: 'center'}}>
+						<Logo_Selector Current_Image={Logo} Function={(Event) => Change_the_Restaurant_Logo (Event.target.files [0])} ID='Restaurant_Logo'></Logo_Selector>
+					</div>
 				</Grid>
 				<Grid>
 					<Text_Input_Field Label="Restaurant Name" Function={Change_the_Name} Value={Name}></Text_Input_Field>

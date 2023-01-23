@@ -1,3 +1,4 @@
+import React from 'react';
 import {ReactComponent as Error_Icon} from '../../Images/Error_Icon.svg';
 import './Text_Input_Field.css';
 
@@ -8,4 +9,4 @@ const Text_Input_Field = ({Bold_Status, Color, Disabled_Status, Error_Message, E
     <input className={`Text_Input_Field ${Error_Status ? 'Text_Input_Error' : null}`} disabled={Disabled_Status} onChange={(Event) => Function (Event.target.value)} onClick={() => Set_Error_Status (false)} style={{borderColor: Color, color: Color, fontWeight: Bold_Status ? 'bold' : 'normal'}} type={Type} value={Value} />
 </div>
 
-export default Text_Input_Field;
+export default React.memo (Text_Input_Field);

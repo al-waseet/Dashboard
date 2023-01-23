@@ -95,7 +95,8 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 
 	useEffect (() => 
 	{
-		Set_Display_Statuses (Restaurant.Categories.map (Category => Category.Name).reduce ((Category_Name, Index) => (Category_Name [Index] = false, Category_Name), {}));
+		console.log (Restaurant.Menu);
+		Set_Display_Statuses (Restaurant.Categories.map (Category => Category.ID).reduce ((Category_ID, Index) => (Category_ID [Index] = false, Category_ID), {}));
 	}, [])
 
     const Drag_the_Banner = Event =>
@@ -141,9 +142,9 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 			{
 				Restaurant.Categories.map (Category =>
 					<div className='Category'>
-						<Banner Category={Category} Change_the_Banner_Image={Change_the_Banner_Image} Change_the_Banner_Name={Change_the_Banner_Name} Drag={Drag_the_Banner} Drop={Drop_the_Banner} Delete_the_Category={() => Delete_the_Category (Category.Name)} ID={Category.ID} New_Category_Status={!Category.Name} Toggle={() => Toggle_the_Customization_Menu (Category.Name)} Toggle_Status={Display_Statuses [Category.Name]}></Banner>
-						{Display_Statuses [Category.Name] && Restaurant.Menu.filter (Menu_Item => Menu_Item.Category === Category.Name).map (Menu_Item => <Card Addons={Menu_Item.Addons} Category={Menu_Item.Category} Currency={Restaurant.Currency} Delete_the_Item={Delete_the_Item} Description={Menu_Item.Description} Drag={Drag_the_Card} Drop={Drop_the_Card} ID={Menu_Item.ID} Name={Menu_Item.Name} New_Item_Status={false} Photo={Menu_Item.Image} Price={Menu_Item.Price} Save_the_Item={Save_the_Item}></Card>)}
-						{Display_Statuses [Category.Name] && <Card Add_an_Item={Add_an_Item} Addons={[]} Category={Category.Name} Currency={Restaurant.Currency} Photo={Placeholder_Card_Image} New_Item_Status={true}></Card>}
+						<Banner Category={Category} Change_the_Banner_Image={Change_the_Banner_Image} Change_the_Banner_Name={Change_the_Banner_Name} Drag={Drag_the_Banner} Drop={Drop_the_Banner} Delete_the_Category={() => Delete_the_Category (Category.Name)} ID={Category.ID} key={`${Category.Name}_Key`} New_Category_Status={!Category.Name} Toggle={() => Toggle_the_Customization_Menu (Category.ID)} Toggle_Status={Display_Statuses [Category.ID]}></Banner>
+						{Display_Statuses [Category.ID] && Restaurant.Menu.filter (Menu_Item => Menu_Item.Category === Category.ID).map (Menu_Item => <Card Addons={Menu_Item.Addons} Category={Menu_Item.Category} Currency={Restaurant.Currency} Delete_the_Item={Delete_the_Item} Description={Menu_Item.Description} Drag={Drag_the_Card} Drop={Drop_the_Card} ID={Menu_Item.ID} key={`${Menu_Item.Name}_Key`} Name={Menu_Item.Name} New_Item_Status={false} Photo={Menu_Item.Image} Price={Menu_Item.Price} Save_the_Item={Save_the_Item}></Card>)}
+						{Display_Statuses [Category.ID] && <Card Add_an_Item={Add_an_Item} Addons={[]} Category={Category.Name} Currency={Restaurant.Currency} Photo={Placeholder_Card_Image} New_Item_Status={true}></Card>}
 					</div>)
 			}
 			<Addition_Button Function={Add_a_Category}></Addition_Button>
