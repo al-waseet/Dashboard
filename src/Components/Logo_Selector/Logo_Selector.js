@@ -1,12 +1,11 @@
-import {ReactComponent as Camera_Icon} from '../../Images/Camera_Icon.svg';
+import Image_Button from '../Image_Button/Image_Button';
 import './Logo_Selector.css';
 
-const Logo_Selector = ({Current_Image, Function}) =>
+const Logo_Selector = ({Current_Image, Function, ID}) =>
 (
 	<div className='Logo_Selector'>
 		<img alt='Your Logo goes Here' className='Logo' src={Current_Image}></img>
-		<input accept="image/*" hidden id='Logo_Selection_Button' onChange={Function} type="file"></input>
-		<label className='Image_Selection_Button' htmlFor='Logo_Selection_Button'><Camera_Icon className='Image_Selection_Button_Icon' fill='#8068A8'></Camera_Icon></label>
+		<Image_Button Function={Function} ID={ID}></Image_Button>
 	</div>
 )
 

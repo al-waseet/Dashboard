@@ -33,7 +33,7 @@ const Dropdown_Menu = ({Classes, Function, Label, Options, Value}) =>
 		<form className='Dropdown_Menu_Form' onKeyDown={Press_the_Escape_Button} ref={Dropdown_Menu_Reference}>
 			<input checked={Option_Showing_Status} className='Dropdown_Menu_Controller' onChange={(Event) => Set_Option_Showing_Status (!Option_Showing_Status)} type="checkbox" />
 			<div className='Dropdown_Menu_Box'>
-				<div className='Dropdown_Menu_Selected_Value' style={(!Option_Showing_Status && Value === undefined) ? {visibility: 'hidden'} : null}><span>Select POS</span></div>
+				<div className='Dropdown_Menu_Selected_Value' style={!Option_Showing_Status ? {visibility: 'hidden'} : null}><span>Select POS</span></div>
 				<div className='Dropdown_Menu_Arrow_Icon'></div>
 			</div>
 			<div className='Dropdown_Menu_Options'>

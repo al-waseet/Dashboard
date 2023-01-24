@@ -6,7 +6,7 @@
 
 .Phone_Number_Input_Field_Label
 {
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	font-weight: bold;
 }
 
@@ -42,7 +42,7 @@
 
 .Phone_Number_Code_Controller:checked ~ .Phone_Number_Code_Options 
 {
-	border: 2px solid #050505;
+	border: 2px solid #4D4D4D;
 	height: 16rem;
 	overflow-y: scroll;
 }
@@ -77,7 +77,7 @@
 	border-top-left-radius: 0.375rem;
 	border-bottom-left-radius: 0.375rem;
 	cursor: pointer;
-	border: 2px solid #050505;
+	border: 2px solid #4D4D4D;
 }
 
 .Phone_Number_Code_Selected_Value
@@ -88,7 +88,7 @@
 .Phone_Number_Code_Arrow_Icon 
 {
 	position: absolute;
-	background-color: #050505;
+	background-color: #4D4D4D;
 	top: 0.75rem;
 	right: 1rem;
 	bottom: 1rem;
@@ -129,7 +129,7 @@
 
 .Phone_Number_Code_Option, .Phone_Number_Option_Label 
 {
-	color: #050505;
+	color: #4D4D4D;
 	font-size: 1.25rem;
 }
 
@@ -225,10 +225,10 @@ input[type="radio"]
 
 .Phone_Number_Input_Field
 {
-	color: #050505;
-	border-top: 2px solid #050505;
-    border-right: 2px solid #050505;
-    border-bottom: 2px solid #050505;
+	color: #4D4D4D;
+	border-top: 2px solid #4D4D4D;
+    border-right: 2px solid #4D4D4D;
+    border-bottom: 2px solid #4D4D4D;
     border-left: 0;
 	background-color: transparent;
 	height: 2rem;

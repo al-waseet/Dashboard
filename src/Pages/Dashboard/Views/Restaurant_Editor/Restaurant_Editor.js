@@ -1,5 +1,6 @@
 import Addition_Button from '../../../../Components/Addition_Button/Addition_Button';
-import {Convert_Image_to_Base64} from '../../../../Helpers';
+import { Get_the_File_Extension } from '../../../../Helpers';
+import Grid from '../../../../Components/Grid/Grid';
 import Icon_Selector from '../../../../Components/Icon_Selector/Icon_Selector';
 import Logo_Selector from '../../../../Components/Logo_Selector/Logo_Selector';
 import Manager_Card from '../../../../Components/Manager_Card/Manager_Card';
@@ -47,21 +48,19 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 
 	const Change_the_Restaurant_Icon = async New_Icon =>
 	{
-		const New_Icon_in_Base64 = await Convert_Image_to_Base64 (New_Icon);
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
-		Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels = New_Icon_in_Base64;
-        Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Icon_512_Pixels.png`
-		Set_Icon (New_Icon_in_Base64);
+		Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels = URL.createObjectURL (New_Icon);
+		Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Icon_512_Pixels${Get_the_File_Extension (Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels.type)}`
+		Set_Icon (Restaurant_Copy.Icons.Five_Hundred_Twelve_Pixels);
 		Set_Restaurant (Restaurant_Copy);
 	}
 
 	const Change_the_Restaurant_Logo = async New_Logo =>
 	{
-		const New_Logo_in_Base64 = await Convert_Image_to_Base64 (New_Logo);
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
-		Restaurant_Copy.Logo = New_Logo_in_Base64;
-        Restaurant_Copy.Logo_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Logo.png`
-		Set_Logo (New_Logo_in_Base64);
+		Restaurant_Copy.Logo = URL.createObjectURL (New_Logo);
+		Restaurant_Copy.Logo_File_Path = `/Images/${Restaurant_Copy.Name.replace (' ', '_')}/${Restaurant_Copy.Name.replace (' ', '_')}_Logo${Get_the_File_Extension (Restaurant_Copy.Logo.type)}`
+		Set_Logo (Restaurant_Copy.Logo);
 		Set_Restaurant (Restaurant_Copy);
 	}
 
@@ -92,15 +91,21 @@ const Restaurant_Editor = ({Restaurant, Set_Restaurant, Set_Users, Users}) =>
 	return (
 		<div className='Restaurant_Editor' key='Restaurant_Editor_Key'>
 			<h2 className='View_Header'>General Information</h2>
-			<div className='Restaurant_Logos'>
-				<Icon_Selector Current_Image={Icon} Function={(Event) => Change_the_Restaurant_Icon (Event.target.files [0])}></Icon_Selector>
-				<Logo_Selector Current_Image={Logo} Function={(Event) => Change_the_Restaurant_Logo (Event.target.files [0])}></Logo_Selector>
-			</div>
-			<div className='Restaurant_Information'>
-				<Text_Input_Field Label="Name" Function={Change_the_Name} Value={Name}></Text_Input_Field>
-				<Text_Input_Field Label="Address" Function={Change_the_Address} Value={Address}></Text_Input_Field>
-				<Text_Input_Field Label="Website" Function={Change_the_Website} Value={Website}></Text_Input_Field>
-                <Text_Input_Field Disabled_Status={true} Label="Branch" Value={Restaurant.Branch}></Text_Input_Field>
+			<div className='General_Information_Edtior'>
+				<Grid>
+					<div style={{justifySelf: 'flex-start'}}>
+						<Icon_Selector Current_Image={Icon} Function={(Event) => Change_the_Restaurant_Icon (Event.target.files [0])} ID='Restaurant_Icon'></Icon_Selector>
+					</div>
+					<div style={{alignSelf: 'center'}}>
+						<Logo_Selector Current_Image={Logo} Function={(Event) => Change_the_Restaurant_Logo (Event.target.files [0])} ID='Restaurant_Logo'></Logo_Selector>
+					</div>
+				</Grid>
+				<Grid>
+					<Text_Input_Field Label="Restaurant Name" Function={Change_the_Name} Value={Name}></Text_Input_Field>
+					<Text_Input_Field Label="Address" Function={Change_the_Address} Value={Address}></Text_Input_Field>
+					<Text_Input_Field Label="Website" Function={Change_the_Website} Value={Website}></Text_Input_Field>
+					<Text_Input_Field Label="Branch" Value={Restaurant.Branch}></Text_Input_Field>
+				</Grid>
 			</div>
 			<h2 className='Managers_Header'>Managers</h2>
 			<div className='Managers'>

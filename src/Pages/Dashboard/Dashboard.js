@@ -48,14 +48,20 @@ const Dashboard = () =>
 
 	const Preview_the_Changes = () =>
 	{
-		const Restaurant_Preview_Channel = new BroadcastChannel ('Restaurant_Preview');
-		Restaurant_Preview_Channel.postMessage (JSON.stringify (User.Restaurant));
-		window.open (`${Configuration.Ordering_Application_URL}/preview`, '_blank');
+        const Socket = new WebSocket ('ws://localhost:3002');
+
+        Socket.addEventListener ('open', Event => 
+        {
+            Socket.send ('Hello Server!');
+        });
+
+		const Restaurant_Preview_Window = window.open (`${Configuration.Ordering_Application_URL}/preview`);
+        Restaurant_Preview_Window.window.Restaurant_Preview = JSON.stringify (User.Restaurant);
 	}
 
 	const Save_the_Changes = () =>
 	{
-        const Pure_User = structuredClone (User)
+        const Pure_User = structuredClone (User);
         delete Pure_User.Restaurant;
         delete Pure_User.Token;
         delete Pure_User.Users;

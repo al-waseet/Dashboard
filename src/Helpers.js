@@ -1,5 +1,3 @@
-export const Go_to_Another_Page = (Navigate, URL_Path) => process.env.REACT_APP_Environment === 'Production' ? Navigate (URL_Path) : window.location.href = URL_Path;
-
 export const Convert_Image_to_Base64 = Image_File => new Promise ((Resolve, Reject) => 
 {
     const Image_File_Reader = new FileReader ();
@@ -7,3 +5,14 @@ export const Convert_Image_to_Base64 = Image_File => new Promise ((Resolve, Reje
     Image_File_Reader.onload = () => Resolve (Image_File_Reader.result);
     Image_File_Reader.onerror = Error_Message => Reject (Error_Message);
 });
+
+export const Get_the_File_Extension = Image_File_Type =>
+{
+    const File_Types = 
+    {
+        "image/jpeg": ".jpeg",
+        "image/png": ".png",
+        "image/svg+xml": ".svg"
+    }
+    return File_Types [Image_File_Type] !== undefined ? File_Types [Image_File_Type] : '';
+}

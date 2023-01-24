@@ -4,15 +4,28 @@
 	border-radius: 0.5rem;
 	margin-bottom: 2rem;
     position: relative;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .Card_Controls
 {
     display: flex;
+	flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.Basic_Information
+{
+    display: flex;
 	flex-direction: row;
     flex-wrap: wrap;
     gap: 2rem;
+}
+
+.Basic_Information > div:not(:first-child)
+{
+    flex-grow: 1;
 }
 
 .Card_Image_Container
@@ -31,7 +44,7 @@
 
 .Currency
 {
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	font-weight: bold;
 }
 
@@ -46,6 +59,14 @@
 .Customization_Information
 {
 	display: flex;
+	flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.Customization_Information_Column
+{
+    display: flex;
 	flex-direction: column;
     gap: 1rem;
 }

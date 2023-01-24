@@ -26,10 +26,10 @@
 	position: absolute;
 	border-radius: 0.5rem;
 	border: 2px solid #4D4D4D;
-	margin-top: 1rem;
 	right: 0;
     z-index: 3;
     background-color: #FFFFFF;
+    width: 10rem;
 }
 
 .Account_Menu_Option

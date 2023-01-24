@@ -12,12 +12,57 @@
 
 .Input_Area
 {
-    border: 2px solid #4D4D4D;
-    border-radius: 0.5rem;
-    background-color: white;
-    padding: 4rem;
-    display: flex;
-    flex-direction: column;
+	border: 2px solid #4D4D4D;
+	border-radius: 0.5rem;
+	background-color: white;
+	padding: 2rem 4rem;
+	display: flex;
+	flex-direction: column;
 	align-self: center;
-    gap: 1rem;
+	gap: 1rem;
+	max-width: 200px;
+}
+
+.Authentication_Banner
+{
+	max-width: 100%;
+}
+
+.Forgot_Password_Field
+{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.Error_Message
+{
+	color: #AC0202;
+	font-weight: normal;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.5rem;
+	animation: Fade_In 375ms;
+}
+
+@keyframes Fade_In 
+{
+	0% 
+	{ 
+		opacity: 0; 
+	}
+	50% 
+	{
+		opacity: 0.5; 
+		transform: scale(1.1);
+	}
+	75% 
+	{
+		transform: scale(1);
+		opacity: 0.75; 
+	}
+	100% 
+	{
+		opacity: 1;
+	}
 }
