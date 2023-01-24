@@ -70,7 +70,7 @@ const API =
 		{
 			if (Restaurant.Icons [Key].includes ('blob:'))
 			{
-                console.log (Restaurant.Icons [Key]);
+				console.log (Restaurant.Icons [Key]);
 				Restaurant.Icons [Key] = Convert_Image_to_Base64 (Restaurant.Icons [Key]);
 			}
 		});
@@ -90,6 +90,10 @@ const API =
 
 	Update_the_User: async (User) =>
 	{
+		if (User.Avatar.includes ('blob:'))
+		{
+			User.Avatar = Convert_Image_to_Base64 (User.Avatar);
+		}
 		return await (await fetch (Configuration.API_URL + '/user', {method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify (User)}));
 	},
 
