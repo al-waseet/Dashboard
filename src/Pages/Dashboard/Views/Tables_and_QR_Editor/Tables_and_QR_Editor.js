@@ -22,7 +22,7 @@ const Tables_and_QR_Editor = ({Restaurant, Set_Restaurant}) =>
 	return (
 		<div className='Tables_and_QR_Editor' key='Tables_and_QR_Editor_Key'>
 			<div className='Tables'>
-				{Restaurant.Tables.map (Table => <QR_Code Delete_the_Table={() => Delete_the_Table (Table.ID)} Information={{Restaurant_ID: Restaurant.ID, Table_ID: Table.ID, Table_Number: Table.Number}}></QR_Code>)}
+				{Restaurant.Tables.map (Table => <QR_Code Delete_the_Table={() => Delete_the_Table (Table.ID)} Information={{Restaurant_ID: Restaurant._id, Table_ID: Table.ID, Table_Number: Table.Number}}></QR_Code>)}
 				<Addition_Button Color='#8068A8' Function={Add_a_Table}></Addition_Button>
 			</div>
 		</div>
