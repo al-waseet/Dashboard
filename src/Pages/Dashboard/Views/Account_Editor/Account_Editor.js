@@ -31,7 +31,7 @@ const Account_Editor = ({Restaurant_Name, Set_User, User}) =>
 		const User_Copy = Object.assign ({}, User);
 		User_Copy.Avatar = URL.createObjectURL (New_Avatar);
 		User_Copy.Avatar_File_Path = `/Images/${Restaurant_Name.replace (' ', '_')}/Profile_Pictures/${User_Copy.Username}_Profile_Picture${Get_the_File_Extension (New_Avatar.type)}`;
-		Set_Avatar (User_Copy.Avatar);
+        Set_Avatar (User_Copy.Avatar);
 		Set_User (User_Copy);
 	}
 

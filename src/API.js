@@ -55,35 +55,34 @@ const API =
 
 	Update_the_Restaurant: async (Restaurant) =>
 	{
-		Restaurant.Categories.forEach (Category => 
+		Restaurant.Categories.forEach (async Category => 
 		{
 			if (Category.Banner_Image.includes ('blob:'))
 			{
-				Category.Banner_Image = Convert_Image_to_Base64 (Category.Banner_Image);
+				Category.Banner_Image = await Convert_Image_to_Base64 (Category.Banner_Image);
 			}
 		});
 		if (Restaurant.Cart_Icon.includes ('blob:'))
 		{
-			Restaurant.Cart_Icon = Convert_Image_to_Base64 (Restaurant.Cart_Icon);
+			Restaurant.Cart_Icon = await Convert_Image_to_Base64 (Restaurant.Cart_Icon);
 		}
-		Object.keys (Restaurant.Icons).forEach (Key =>
+		Object.keys (Restaurant.Icons).forEach (async Key =>
 		{
 			if (Restaurant.Icons [Key].includes ('blob:'))
 			{
-				console.log (Restaurant.Icons [Key]);
-				Restaurant.Icons [Key] = Convert_Image_to_Base64 (Restaurant.Icons [Key]);
+				Restaurant.Icons [Key] = await Convert_Image_to_Base64 (Restaurant.Icons [Key]);
 			}
 		});
-		Restaurant.Menu.forEach (Menu_Item => 
+		Restaurant.Menu.forEach (async Menu_Item => 
 		{
 			if (Menu_Item.Image.includes ('blob:'))
 			{
-				Menu_Item.Image = Convert_Image_to_Base64 (Menu_Item.Image);
+				Menu_Item.Image = await Convert_Image_to_Base64 (Menu_Item.Image);
 			}
 		}); 
 		if (Restaurant.Logo.includes ('blob:'))
 		{
-			Restaurant.Logo = Convert_Image_to_Base64 (Restaurant.Logo);
+			Restaurant.Logo = await Convert_Image_to_Base64 (Restaurant.Logo);
 		}
 		return await (await fetch (Configuration.API_URL + '/restaurant', {method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify (Restaurant)}));
 	},
@@ -92,7 +91,7 @@ const API =
 	{
 		if (User.Avatar.includes ('blob:'))
 		{
-			User.Avatar = Convert_Image_to_Base64 (User.Avatar);
+			User.Avatar = await Convert_Image_to_Base64 (User.Avatar);
 		}
 		return await (await fetch (Configuration.API_URL + '/user', {method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify (User)}));
 	},

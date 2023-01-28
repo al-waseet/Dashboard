@@ -43,8 +43,6 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 
     const Change_The_Order_of_the_Categories = (Source_ID, Target_ID) =>
 	{
-        console.log (Source_ID);
-        console.log (Target_ID);
 		const Restaurant_Copy = structuredClone (Restaurant);
 		const Source_Index = Restaurant.Categories.findIndex (Category => Category.ID === Source_ID);
 		const Target_Index = Restaurant.Categories.findIndex (Category => Category.ID === Target_ID);
@@ -95,7 +93,6 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 
 	useEffect (() => 
 	{
-		console.log (Restaurant.Menu);
 		Set_Display_Statuses (Restaurant.Categories.map (Category => Category.ID).reduce ((Category_ID, Index) => (Category_ID [Index] = false, Category_ID), {}));
 	}, [])
 
