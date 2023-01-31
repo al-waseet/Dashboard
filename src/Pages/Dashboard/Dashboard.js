@@ -48,15 +48,14 @@ const Dashboard = () =>
 
 	const Preview_the_Changes = () =>
 	{
-        const Socket = new WebSocket ('ws://localhost:3002');
+        const Socket = new WebSocket ('ws://localhost:3031');
 
         Socket.addEventListener ('open', Event => 
         {
-            Socket.send ('Hello Server!');
+            Socket.send (JSON.stringify (User.Restaurant));
         });
 
-		const Restaurant_Preview_Window = window.open (`${Configuration.Ordering_Application_URL}/preview`);
-        Restaurant_Preview_Window.window.Restaurant_Preview = JSON.stringify (User.Restaurant);
+		window.open (`${Configuration.Ordering_Application_URL}/preview`);
 	}
 
 	const Save_the_Changes = () =>
