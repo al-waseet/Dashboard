@@ -17,6 +17,7 @@ const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Descrip
 	const [Card_ID, Set_Card_ID] = useState ('');
 	const [Card_Name, Set_Card_Name] = useState ('');
 	const [Card_Photo, Set_Card_Photo] = useState ('');
+	const [Card_Photo_File, Set_Card_Photo_File] = useState ('');
 	const [Card_Price, Set_Card_Price] = useState (0);
 	const [Side_Dishes_Enablement_Status, Set_Side_Dishes_Enablement_Status] = useState (false);
 
@@ -40,7 +41,11 @@ const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Descrip
 		Set_Card_Addons (Addons_Copy);
 	}
 
-	const Change_the_Photo = async New_Photo => Set_Card_Photo (URL.createObjectURL (New_Photo));
+	const Change_the_Photo = async New_Photo => 
+	{
+		Set_Card_Photo (URL.createObjectURL (New_Photo))
+		Set_Card_Photo_File (New_Photo);
+	}
 
 	const Create_an_Item = () =>
 	{
@@ -50,7 +55,7 @@ const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Descrip
 			Category: Card_Category,
 			Description: Card_Description,
 			ID: Card_ID,
-			Image: Card_Photo,
+			Image: Card_Photo_File,
 			Name: Card_Name,
 			Price: Card_Price
 		}
@@ -96,7 +101,7 @@ const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Descrip
 			Category: Card_Category,
 			Description: Card_Description,
 			ID: Card_ID,
-			Image: Card_Photo,
+			Image: Card_Photo_File,
 			Name: Card_Name,
 			Price: Card_Price
 		}
