@@ -17,7 +17,7 @@ const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Descrip
 	const [Card_ID, Set_Card_ID] = useState ('');
 	const [Card_Name, Set_Card_Name] = useState ('');
 	const [Card_Photo, Set_Card_Photo] = useState ('');
-	const [Card_Photo_File, Set_Card_Photo_File] = useState ('');
+	const [Card_Photo_File, Set_Card_Photo_File] = useState ({});
 	const [Card_Price, Set_Card_Price] = useState (0);
 	const [Side_Dishes_Enablement_Status, Set_Side_Dishes_Enablement_Status] = useState (false);
 
@@ -66,7 +66,7 @@ const Card = ({Add_an_Item, Addons, Category, Currency, Delete_the_Item, Descrip
 		Set_Card_Description ('');
 		Set_Card_ID (crypto.randomUUID ());
 		Set_Card_Name ('');
-		Set_Card_Photo (Photo);
+		Set_Card_Photo ('');
 		Set_Card_Price (0);
 		Set_Side_Dishes_Enablement_Status (false);
 	}
