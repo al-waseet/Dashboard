@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/dashboard/static/css/main.98ea395e.css",
-    "main.js": "/dashboard/static/js/main.4b5aea1d.js",
+    "main.js": "/dashboard/static/js/main.9f4faee5.js",
     "static/media/Not_Found_Page_Background_Photo_Left_Alignment.jpg": "/dashboard/static/media/Not_Found_Page_Background_Photo_Left_Alignment.7cc0afaa6106517cb656.jpg",
     "static/media/Placeholder_Card_Image.jpg": "/dashboard/static/media/Placeholder_Card_Image.3a0962d8c7f9b5b0125e.jpg",
     "static/media/Placeholder_Banner_Image.jpg": "/dashboard/static/media/Placeholder_Banner_Image.9832ea4627dc60446051.jpg",
-    "static/media/al_waseet_Banner.svg": "/dashboard/static/media/al_waseet_Banner.ce1033973f0e1cc0ccc2ba8bc323d740.svg",
-    "static/media/Camera_Icon.svg": "/dashboard/static/media/Camera_Icon.e13693e2d5202f0341eb6a167b9b950f.svg",
+    "static/media/al_waseet_Banner.svg": "/dashboard/static/media/al_waseet_Banner.703e6c8c6f9a789ddcb03ac741528038.svg",
+    "static/media/Camera_Icon.svg": "/dashboard/static/media/Camera_Icon.62fe9ea3e6dcd6c5343b9b499a5bb24b.svg",
     "index.html": "/dashboard/index.html",
-    "static/media/Account_Icon.svg": "/dashboard/static/media/Account_Icon.b18cdb160141c7ec5c8e3b8e0020609e.svg",
-    "static/media/Printer_Icon.svg": "/dashboard/static/media/Printer_Icon.97979cfd82e72da7c0a20d799ed7e9fc.svg",
-    "static/media/Arrow_Down.svg": "/dashboard/static/media/Arrow_Down.e9e2d61bb3946ba526f06ea4cb78a3e0.svg",
-    "static/media/Back_Icon.svg": "/dashboard/static/media/Back_Icon.14c2ef7b3c0069a1cb75fb42d086c5f9.svg",
-    "static/media/Addition_Icon.svg": "/dashboard/static/media/Addition_Icon.eddc017e7c09058c0a356a67806722c5.svg",
-    "static/media/Error_Icon.svg": "/dashboard/static/media/Error_Icon.412fa546f96baa0d84760fbaff9e97b7.svg",
-    "static/media/Pencil_Icon.svg": "/dashboard/static/media/Pencil_Icon.e5d5f5b8070b8c9d9eed63275f8ff995.svg",
-    "static/media/Subtraction_Icon.svg": "/dashboard/static/media/Subtraction_Icon.208d46a88c2a7cf9f9c133b34a32c913.svg",
-    "static/media/Close_Icon.svg": "/dashboard/static/media/Close_Icon.168f119a6fa006183501ec4fd7f3bc1b.svg",
-    "static/media/Hamburger_Icon.svg": "/dashboard/static/media/Hamburger_Icon.5f4ce0af437aa5c13e6a01312bb97874.svg"
+    "static/media/Account_Icon.svg": "/dashboard/static/media/Account_Icon.8f56045742c116d4ebe5c194e779e842.svg",
+    "static/media/Printer_Icon.svg": "/dashboard/static/media/Printer_Icon.ec9afafa131d55a708fa95ed3cd9b8f5.svg",
+    "static/media/Arrow_Down.svg": "/dashboard/static/media/Arrow_Down.1c60577f57e94a9c4653b3cc18637171.svg",
+    "static/media/Back_Icon.svg": "/dashboard/static/media/Back_Icon.85e725ef329d4ab33a67fd258dfa2f81.svg",
+    "static/media/Addition_Icon.svg": "/dashboard/static/media/Addition_Icon.30fa5df00c702813eadd244a0a3d29e0.svg",
+    "static/media/Error_Icon.svg": "/dashboard/static/media/Error_Icon.7095841466da14ce9ba90f7613eeb832.svg",
+    "static/media/Pencil_Icon.svg": "/dashboard/static/media/Pencil_Icon.eee03fbe39681e224d2bbac2f673ef69.svg",
+    "static/media/Subtraction_Icon.svg": "/dashboard/static/media/Subtraction_Icon.83d4f80cedb38670c040bd8183924d2c.svg",
+    "static/media/Close_Icon.svg": "/dashboard/static/media/Close_Icon.c847e3baec60fe2a62a095a41a84e7b3.svg",
+    "static/media/Hamburger_Icon.svg": "/dashboard/static/media/Hamburger_Icon.d40ad0cad79206bcaa7bcc3b0860c179.svg"
   },
   "entrypoints": [
     "static/css/main.98ea395e.css",
-    "static/js/main.4b5aea1d.js"
+    "static/js/main.9f4faee5.js"
   ]
 }
