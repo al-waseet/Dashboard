@@ -24,8 +24,7 @@ const Banner = ({Category, Change_the_Banner_Image, Change_the_Banner_Name, Dele
 
 	const Change_the_Banner_Image_Value = async New_Image =>
 	{
-		New_Image = URL.createObjectURL (New_Image);
-		Set_Banner_Image (New_Image);
+		Set_Banner_Image (URL.createObjectURL (New_Image));
 		Change_the_Banner_Image (New_Image, Category.ID);
 	}
 

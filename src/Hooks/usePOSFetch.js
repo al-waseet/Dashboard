@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export const usePOSFetch = () =>
 {
-	const [POS, Set_POS] = useState ({});
+	const [POS, Set_POS] = useState ([]);
 
 	const Get_the_POS = async () =>
 	{

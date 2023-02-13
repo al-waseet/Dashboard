@@ -22,6 +22,7 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
 		Menu_Item.File_Path = `/Images/${Restaurant.Name.replace (' ', '_')}/Menu/${Menu_Item.Name.replace (' ', '_')}${Get_the_File_Extension (Menu_Item.Image.type)}`;
+		Menu_Item.Image = URL.createObjectURL (Menu_Item.Image);
 		Restaurant_Copy.Menu.push (Menu_Item);
 		Set_Restaurant (Restaurant_Copy);
 	}
@@ -29,7 +30,7 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 	const Change_the_Banner_Image = (Banner_Image, ID) =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
-		Restaurant_Copy.Categories.find (Category => Category.ID === ID).Banner_Image = Banner_Image;
+		Restaurant_Copy.Categories.find (Category => Category.ID === ID).Banner_Image = URL.createObjectURL (Banner_Image);
 		Restaurant_Copy.Categories.find (Category => Category.ID === ID).File_Path = `/Images/${Restaurant.Name.replace (' ', '_')}/Menu/${Restaurant_Copy.Categories.find (Category => Category.ID === ID).Name.replace (' ', '_')}${Get_the_File_Extension (Banner_Image.type)}`;
 		Set_Restaurant (Restaurant_Copy)
 	}
@@ -43,8 +44,6 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 
     const Change_The_Order_of_the_Categories = (Source_ID, Target_ID) =>
 	{
-        console.log (Source_ID);
-        console.log (Target_ID);
 		const Restaurant_Copy = structuredClone (Restaurant);
 		const Source_Index = Restaurant.Categories.findIndex (Category => Category.ID === Source_ID);
 		const Target_Index = Restaurant.Categories.findIndex (Category => Category.ID === Target_ID);
@@ -82,6 +81,7 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 	{
 		const Restaurant_Copy = Object.assign ({}, Restaurant);
 		Updated_Menu_Item.File_Path = `/Images/${Restaurant.Name.replace (' ', '_')}/Menu/${Updated_Menu_Item.Name.replace (' ', '_')}${Get_the_File_Extension (Updated_Menu_Item.Image.type)}`;
+		Updated_Menu_Item.Image = URL.createObjectURL (Updated_Menu_Item.Image);
 		Restaurant_Copy.Menu [Restaurant_Copy.Menu.findIndex (Menu_Item => Menu_Item.ID === Updated_Menu_Item.ID)] = Updated_Menu_Item;
 		Set_Restaurant (Restaurant_Copy);
 	}
@@ -95,7 +95,6 @@ const Menu_Editor = ({Restaurant, Set_Restaurant}) =>
 
 	useEffect (() => 
 	{
-		console.log (Restaurant.Menu);
 		Set_Display_Statuses (Restaurant.Categories.map (Category => Category.ID).reduce ((Category_ID, Index) => (Category_ID [Index] = false, Category_ID), {}));
 	}, [])
 

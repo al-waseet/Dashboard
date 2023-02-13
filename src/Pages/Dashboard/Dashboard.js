@@ -48,25 +48,19 @@ const Dashboard = () =>
 
 	const Preview_the_Changes = () =>
 	{
-        const Socket = new WebSocket ('ws://localhost:3002');
-
-        Socket.addEventListener ('open', Event => 
-        {
-            Socket.send ('Hello Server!');
-        });
-
-		const Restaurant_Preview_Window = window.open (`${Configuration.Ordering_Application_URL}/preview`);
-        Restaurant_Preview_Window.window.Restaurant_Preview = JSON.stringify (User.Restaurant);
+		const Web_Socket = new WebSocket ('ws://localhost:3031');
+		Web_Socket.addEventListener ('open', Event => Web_Socket.send (JSON.stringify (User.Restaurant)));
+		window.open (`${Configuration.Ordering_Application_URL}/preview`);
 	}
 
 	const Save_the_Changes = () =>
 	{
-        const Pure_User = structuredClone (User);
-        delete Pure_User.Restaurant;
-        delete Pure_User.Token;
-        delete Pure_User.Users;
+		const Pure_User = structuredClone (User);
+		delete Pure_User.Restaurant;
+		delete Pure_User.Token;
+		delete Pure_User.Users;
 		API.Update_the_Restaurant (User.Restaurant);
-        //API.Update_the_Users (User.Users);
+		//API.Update_the_Users (User.Users);
 		API.Update_the_User (Pure_User);
 		
 	}
